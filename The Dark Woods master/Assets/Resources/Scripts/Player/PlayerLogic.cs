@@ -9,46 +9,29 @@ public class PlayerLogic : MonoBehaviour
 {
     //Variables
     public Animator animator;
-    public GameObject Fire;
-    public Joystick TheJoystick;
-    public GameObject FirePoint;
-    //public float FireRange;
-    //public float FireSpread;
-    public int PlayerSpeed = 10;
-    public int JumpPower = 35;
-    public float RayOriginY;
-    public float HitDistance;
-    public bool IsGrounded = true;
-    public int FireDamage;
+    public Joystick the_joystick;
+    public int player_speed = 10;
+    public int jump_power = 35;
     public int player_max_health;
     public int player_curr_health;
     public int player_mana;
-
-    private float HorizontalMove;
-    private bool GoingRight = true;
-    private bool IsFireing;
-    private GameObject FireInstance;
+    public int y_death_level;
+    public float ray_origin_y;
+    public float hit_distance;
+    public bool is_grounded = true;
     public bool jump;
-    // Start is called before the first frame update
-    void Start()
-    {
-        IsFireing = false;
-        FireInstance = null;
-    }
+
+    private float horizontal_move;
+    private bool going_right = true;
     // Update is called once per frame
     void Update()
     {
-
-        Movement();
         PlayerRaycast();
-       
+        Movement();
         //if (IsGrounded == false)
         //{
         //    animator.SetBool("is_jumping", true);
         //}
-
-
-        
         if (player_max_health > player_curr_health)
         {
             player_curr_health = player_max_health;
@@ -57,37 +40,14 @@ public class PlayerLogic : MonoBehaviour
         {
             //Die();
         }
-        
         //Attacks
         if (Input.touchCount > 0)
         {
-            if (DialogueManager.IsInDialogue)
+            if (DialogueManager.is_in_dialogue)
             {
                 if(Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
                     FindObjectOfType<DialogueManager>().NextDialogueSentence();
-                }
-            }
-            else
-            {
-                if (Input.touchCount == 1)
-                {
-                    if (TheJoystick.Horizontal == 0 && TheJoystick.Vertical == 0 && !PauseLogic.IsPaused)
-                    {
-                        BreatheFire();
-                    }
-                    if (Input.GetTouch(0).phase == TouchPhase.Ended)
-                    {
-                        StopFire();
-                    }
-                }
-                if (Input.touchCount > 1)
-                {
-                    BreatheFire();
-                    if (Input.GetTouch(1).phase == TouchPhase.Ended)
-                    {
-                        StopFire();
-                    }
                 }
             }
         }
@@ -96,111 +56,84 @@ public class PlayerLogic : MonoBehaviour
         //{
         //    FindObjectOfType<DialogueManager>().NextDialogueSentence();
         //}
-        if (Input.GetButtonDown("Jump") && TheJoystick.Horizontal == 0 && TheJoystick.Vertical == 0)
-        {
-            BreatheFire();
-        }
-        if (Input.GetButtonUp("Jump"))
-        {
-            StopFire();
-        }
+        //if (Input.GetButtonDown("Jump") && the_joystick.Horizontal == 0 && the_joystick.Vertical == 0)
+        //{
+        //    BreatheFire();
+        //}
+        //if (Input.GetButtonUp("Jump"))
+        //{
+        //    StopFire();
+        //}
         //Death Scenarios
-        if (gameObject.transform.position.y < -20)
+        if (gameObject.transform.position.y < y_death_level)
         {
             Die();
         }
-
-
-        if (IsGrounded == false)
+        //Animations
+        if (is_grounded == false)
         {
             animator.SetBool("is_jumping", true);
         }
-        if (IsGrounded == true)
+        if (is_grounded == true)
         {
             animator.SetBool("is_jumping", false);
         }
-
-
-
     }
-    void BreatheFire()
-    {
-        if(!IsFireing)
-        {
-            IsFireing = true;
-            if(FirePoint.transform.position.x < this.transform.position.x)
-            {
-                FireInstance = Instantiate(Fire, new Vector3(this.FirePoint.transform.position.x - (Fire.GetComponent<Renderer>().bounds.size.x/2), this.FirePoint.transform.position.y, this.FirePoint.transform.position.z), Quaternion.Euler(this.FirePoint.transform.rotation.x, this.FirePoint.transform.rotation.y, this.FirePoint.transform.rotation.z + 180));
-            }
-            else if (FirePoint.transform.position.x > this.transform.position.x)
-            {
-                FireInstance = Instantiate(Fire, new Vector3(this.FirePoint.transform.position.x + (Fire.GetComponent<Renderer>().bounds.size.x / 2), this.FirePoint.transform.position.y, this.FirePoint.transform.position.z), Quaternion.Euler(this.FirePoint.transform.rotation.x, this.FirePoint.transform.rotation.y, this.FirePoint.transform.rotation.z));
-            }
-            FireInstance.transform.SetParent(FirePoint.transform);
-            //FireInstance.transform.localScale = new Vector3(FireSpread, FireRange, FireInstance.transform.localScale.z);
-            FireInstance.GetComponent<FireLogic>().Damage = FireDamage;
-        }
-    }
-    void StopFire()
-    {
-        IsFireing = false;
-        Destroy(FireInstance);
-    }
+    //Kill the player (technically reloading the level)
     public void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    //Make the player jump by adding force upward
     void Jump()
     {
-        gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpPower);
-        IsGrounded = false;
-        
+        gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jump_power);
+        is_grounded = false;
         //jump = true;
     }
+    //All raycasts the player should send
     void PlayerRaycast()
     {
-        RaycastHit2D rayDown = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + RayOriginY), Vector2.down);
-        
-        if (rayDown != null && rayDown.collider != null && rayDown.distance < HitDistance && rayDown.collider.tag != "Enemy")
+        RaycastHit2D rayDown = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + ray_origin_y), Vector2.down); //create downward raycast
+        //test if the downward ray is short enough to consider the player grounded
+        if (rayDown != null && rayDown.collider != null && rayDown.distance < hit_distance && rayDown.collider.tag != "Enemy")
         {
-            IsGrounded = true;
-            
+            is_grounded = true;         
         }
     }
+    //Turn the player game object (and children)
     void FlipPlayer()
     {
-        Debug.log("yeet");
-        GoingRight = !GoingRight;
+        going_right = !going_right;
         transform.Rotate(0f, 180f, 0f);
     }
     void Movement()
     {
-        
-        float HorizontalMove = TheJoystick.Horizontal;
-        
-        animator.SetFloat("Speed", Mathf.Abs(HorizontalMove));
-        if (!DialogueManager.IsInDialogue)
+        float horizontal_move = the_joystick.Horizontal;
+        animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
+        if (!DialogueManager.is_in_dialogue)
         {
-            if (HorizontalMove > 0.0f && GoingRight == false)
+            if (horizontal_move > 0.0f && going_right == false)
             {
                 FlipPlayer();
             }
-            if (HorizontalMove < 0.0f && GoingRight == true)
+            if (horizontal_move < 0.0f && going_right == true)
             {
                 FlipPlayer();
             }
-            if (TheJoystick.Horizontal >= 0.2f || TheJoystick.Horizontal <= -0.2f)
+            //horizontal movement
+            if (the_joystick.Horizontal >= 0.2f || the_joystick.Horizontal <= -0.2f)
             {
-                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(HorizontalMove * PlayerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
-                print("lopend");
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(horizontal_move * player_speed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
             }
-            float VerticalMove = TheJoystick.Vertical;
-            if (TheJoystick.Vertical >= 0.5f && IsGrounded)
+            float VerticalMove = the_joystick.Vertical;
+            if (the_joystick.Vertical >= 0.5f && is_grounded)
             {
                 Jump();
             }
         }
-        if (DialogueManager.IsInDialogue)
+        //player movement gets reset when he enters dialogue
+        if (DialogueManager.is_in_dialogue)
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, gameObject.GetComponent<Rigidbody2D>().velocity.y);
         }

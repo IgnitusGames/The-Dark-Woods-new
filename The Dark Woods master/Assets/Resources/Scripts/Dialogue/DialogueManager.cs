@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     // Variables
-    public static bool IsInDialogue = false;
-    public Text DialogueName;
-    public Text DialogueContent;
-    public Animator DialogueAnimator;
+    public static bool is_in_dialogue = false;
+    public Text dialogue_name;
+    public Text dialogue_content;
+    public Animator dialogue_animator;
 
     private Queue<string> AllSentences;
     // Start is called before the first frame update
@@ -19,11 +19,11 @@ public class DialogueManager : MonoBehaviour
     }
     public void StartDialogue(Dialogue CurrentDialogue)
     {
-        IsInDialogue = true;
-        DialogueAnimator.SetBool("IsOpen", true);
-        DialogueName.text = CurrentDialogue.DialogueName;
+        is_in_dialogue = true;
+        dialogue_animator.SetBool("IsOpen", true);
+        dialogue_name.text = CurrentDialogue.dialogue_name;
         AllSentences.Clear();
-        foreach(string sentence in CurrentDialogue.Sentences)
+        foreach(string sentence in CurrentDialogue.sentences)
         {
             AllSentences.Enqueue(sentence);
         }
@@ -45,15 +45,15 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue()
     {
-        IsInDialogue = false;
-        DialogueAnimator.SetBool("IsOpen", false);
+        is_in_dialogue = false;
+        dialogue_animator.SetBool("IsOpen", false);
     }
     IEnumerator TypeSentence(string Sentence)
     {
-        DialogueContent.text = "";
+        dialogue_content.text = "";
         foreach(char letter in Sentence)
         {
-            DialogueContent.text += letter;
+            dialogue_content.text += letter;
             yield return null;
         }
     }

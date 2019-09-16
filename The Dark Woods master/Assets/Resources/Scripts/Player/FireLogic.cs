@@ -7,21 +7,13 @@ public class FireLogic : MonoBehaviour
 {
     //Variables
     public int Damage;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    //Unity functions
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Code below is executed when the fire prefab this script is attatched to comes in contact with an enemy
         if(collision.gameObject.tag == "enemy")
         {
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject); //Kills the enemy the fire has collided with
             Debug.Log("Dealing " + Damage + " damage");
         }
     }

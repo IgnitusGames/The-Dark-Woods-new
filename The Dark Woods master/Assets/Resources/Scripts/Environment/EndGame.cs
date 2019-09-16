@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour
 {
-    public Dialogue CurrentDialogue;
+    public Dialogue current_dialogue;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
@@ -13,8 +13,6 @@ public class EndGame : MonoBehaviour
             if(collision.GetComponent<Player_Health_Collectible>().crystal_score == 3)
             {
                 SceneManager.LoadScene("EndScreen");
-                //StartCoroutine(GoBackToMenuTime());
-                //SceneManager.LoadScene("Menu");
             }
             else
             {
@@ -28,6 +26,6 @@ public class EndGame : MonoBehaviour
     }
     public void InitiateDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(CurrentDialogue);
+        FindObjectOfType<DialogueManager>().StartDialogue(current_dialogue);
     }
 }

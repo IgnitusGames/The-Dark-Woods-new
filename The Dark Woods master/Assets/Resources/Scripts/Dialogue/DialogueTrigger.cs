@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue CurrentDialogue;
+    public Dialogue current_dialogue;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,6 +16,6 @@ public class DialogueTrigger : MonoBehaviour
 
     public void InitiateDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(CurrentDialogue);
+        FindObjectOfType<DialogueManager>().StartDialogue(current_dialogue);
     }
 }
