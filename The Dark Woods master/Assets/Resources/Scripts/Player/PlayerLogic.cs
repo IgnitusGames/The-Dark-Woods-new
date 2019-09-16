@@ -169,6 +169,7 @@ public class PlayerLogic : MonoBehaviour
     }
     void FlipPlayer()
     {
+        Debug.log("yeet");
         GoingRight = !GoingRight;
         transform.Rotate(0f, 180f, 0f);
     }
