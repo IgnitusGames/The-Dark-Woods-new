@@ -7,13 +7,13 @@ public class Shroom_Dash_Enemy_AttackCone : MonoBehaviour
     // Start is called before the first frame update
     //public Enemy_move enemy;
     public bool isLeft = false;
-    public Enemy_Move enemy_move;
+    public Shroom_Dash_Enemy_Move enemy_move;
     public Animator animator;
 
     private void Awake()
     {
 
-        enemy_move = gameObject.GetComponentInParent<Enemy_Move>();
+        enemy_move = gameObject.GetComponentInParent<Shroom_Dash_Enemy_Move>();
 
     }
 

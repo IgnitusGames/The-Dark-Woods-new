@@ -8,7 +8,7 @@ public class Enemy_Vlinder : MonoBehaviour
     public int EnemySpeed;
     public int XMoveDirection;
     //public bool facingRight = true;
-    private Player_health player;
+    private Player_Health_Collectible player;
 
     public float force;
 

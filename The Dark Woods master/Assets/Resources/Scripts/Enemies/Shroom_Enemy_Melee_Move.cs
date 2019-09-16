@@ -8,36 +8,15 @@ public class Shroom_Enemy_Melee_Move : MonoBehaviour
     public int EnemySpeed;
     public int XMoveDirection;
     public bool facingRight = true;
-    private Player_health player;
+    private Player_Health_Collectible player;
     public float raycast_hit_offset;
     public Animator animator;
     public float force;
-    Vector2 huidigePos;
-    Vector2 playerPos;
-    Vector2 startPos;
     public float hitTimer = 5;
     public float hitInterval;
     public float attacktimer = 20.0f;
-
-
-
-
     public float hitDistance;
-    //public Player_health player_Health;
-    // Start is called before the first frame update
 
-
-
-    public float hitTimer2;
-
-    public float hitInterval2;
-    public bool EnemyTrigger;
-
-    //public Player_health player_Health;
-
-
-
-    // Update is called once per frame
     void Update()
     {
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + raycast_hit_offset, transform.position.y), new Vector2(XMoveDirection, 0));

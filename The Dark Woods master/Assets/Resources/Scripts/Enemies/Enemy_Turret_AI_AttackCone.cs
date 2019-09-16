@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Enemy_Turret_AI_AttackCone : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     public Turret_Ai turretAI;
     public bool isLeft = false;
-
-
     private void Awake()
     {
         turretAI = gameObject.GetComponentInParent<Turret_Ai>();
-
     }
 
 
@@ -29,7 +26,7 @@ public class Enemy_Turret_AI_AttackCone : MonoBehaviour
             else
             {
                 turretAI.Attack(true);
-                
+           
             }
         }
     }
@@ -38,12 +35,4 @@ public class Enemy_Turret_AI_AttackCone : MonoBehaviour
         
 }
 
-    //void OnTriggerStay2d(Collider2D trig)
-    //{
-    //    if (trig.gameObject.tag == "Player")
-    //    {
-    //        Debug.Log("aCooonewake is true");
-    //    }
-
-//void OnTriggerStay2d(Collider2D trig)
 
