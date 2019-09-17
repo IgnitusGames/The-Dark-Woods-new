@@ -21,35 +21,35 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.touchCount > 0)
-        {
-            if (!DialogueManager.is_in_dialogue)
-            {
-                if (Input.touchCount == 1)
-                {
-                    if (the_joystick.Horizontal == 0 && the_joystick.Vertical == 0 && !PauseLogic.IsPaused)
-                    {
-                        BreatheFire();
-                    }
-                    if (Input.GetTouch(0).phase == TouchPhase.Ended)
-                    {
-                        StopFire();
-                    }
-                }
-                if (Input.touchCount > 1)
-                {
-                    BreatheFire();
-                    if (Input.GetTouch(1).phase == TouchPhase.Ended)
-                    {
-                        StopFire();
-                    }
-                }
-            }
-        }
+        //if(Input.touchCount > 0)
+        //{
+        //    if (!DialogueManager.is_in_dialogue)
+        //    {
+        //        if (Input.touchCount == 1)
+        //        {
+        //            if (the_joystick.Horizontal == 0 && the_joystick.Vertical == 0 && !PauseLogic.IsPaused)
+        //            {
+        //                BreatheFire();
+        //            }
+        //            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+        //            {
+        //                StopFire();
+        //            }
+        //        }
+        //        if (Input.touchCount > 1)
+        //        {
+        //            BreatheFire();
+        //            if (Input.GetTouch(1).phase == TouchPhase.Ended)
+        //            {
+        //                StopFire();
+        //            }
+        //        }
+        //    }
+        //}
     }
     //custom functions
     //instantiate fire attack
-    void BreatheFire()
+    public void BreatheFire()
     {
         if (!is_fireing)
         {
@@ -67,7 +67,7 @@ public class PlayerCombat : MonoBehaviour
         }
     }
     //Remove fire attack from the scene
-    void StopFire()
+    public void StopFire()
     {
         is_fireing = false;
         Destroy(fire_instance);

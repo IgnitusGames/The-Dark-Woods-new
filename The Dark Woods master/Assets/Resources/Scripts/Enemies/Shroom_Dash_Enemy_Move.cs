@@ -35,12 +35,6 @@ public class Shroom_Dash_Enemy_Move : MonoBehaviour
     //Flip op collision met muur, damage op collision player
     private void OnCollisionEnter2D(Collision2D collision2d)
     {
-
-        if (collision2d.gameObject.tag == "EnemyCollider")
-        {
-
-            Flip();
-        }
         if (collision2d.gameObject.tag == "Player")
         {
            
@@ -48,6 +42,14 @@ public class Shroom_Dash_Enemy_Move : MonoBehaviour
         }
 
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "EnemyCollider")
+        {
+
+            Flip();
+        }
     }
 
     public void Attack()
