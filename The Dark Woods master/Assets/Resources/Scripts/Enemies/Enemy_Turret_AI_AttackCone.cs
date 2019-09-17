@@ -31,6 +31,7 @@ public class Enemy_Turret_AI_AttackCone : MonoBehaviour
             //{
             //    turretAI.Attack(true);
                 
+<<<<<<< Updated upstream
             //}
         }
     }
@@ -48,3 +49,14 @@ public class Enemy_Turret_AI_AttackCone : MonoBehaviour
 
 //void OnTriggerStay2d(Collider2D trig)
 
+=======
+        }
+            else
+            {
+                turretAI.Attack(false);
+           
+            }
+        }
+    }
+
+>>>>>>> Stashed changes
