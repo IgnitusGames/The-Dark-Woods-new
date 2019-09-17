@@ -169,7 +169,7 @@ public class PlayerLogic : MonoBehaviour
     }
     void FlipPlayer()
     {
-        Debug.log("yeet");
+      
         GoingRight = !GoingRight;
         transform.Rotate(0f, 180f, 0f);
     }
@@ -192,7 +192,7 @@ public class PlayerLogic : MonoBehaviour
             if (TheJoystick.Horizontal >= 0.2f || TheJoystick.Horizontal <= -0.2f)
             {
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(HorizontalMove * PlayerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
-                print("lopend");
+                //print("lopend");
             }
             float VerticalMove = TheJoystick.Vertical;
             if (TheJoystick.Vertical >= 0.5f && IsGrounded)
