@@ -160,7 +160,8 @@ public class PlayerLogic : MonoBehaviour
     void PlayerRaycast()
     {
         RaycastHit2D rayDown = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + RayOriginY), Vector2.down);
-        
+        print(rayDown.distance);
+      
         if (rayDown != null && rayDown.collider != null && rayDown.distance < HitDistance && rayDown.collider.tag != "Enemy")
         {
             IsGrounded = true;
