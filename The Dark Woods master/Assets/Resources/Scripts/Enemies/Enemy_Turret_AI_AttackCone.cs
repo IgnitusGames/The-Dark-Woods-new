@@ -17,10 +17,9 @@ public class Enemy_Turret_AI_AttackCone : MonoBehaviour
     {
         if (trig.gameObject.tag == "Player")
         {
-            
-            if (isLeft)
-            {
-                turretAI.Attack(false);
+
+            turretAI.Attack(true);
+          
                 
             }
             else

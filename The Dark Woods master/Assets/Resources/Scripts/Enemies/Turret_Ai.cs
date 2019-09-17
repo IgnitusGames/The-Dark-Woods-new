@@ -102,7 +102,7 @@ public class Turret_Ai : MonoBehaviour
                 GameObject bulletClone;
                 bulletClone = Instantiate(bullet, shootPointLeft.transform.position, shootPointLeft.transform.rotation) as GameObject;
                 bulletClone.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-
+                FindObjectOfType<AudioManager>().Play("EnemyTurretShoot");
                 bulletTimer = 0;
 
             }
@@ -111,7 +111,7 @@ public class Turret_Ai : MonoBehaviour
                 GameObject bulletClone;
                 bulletClone = Instantiate(bullet, shootPointRight.transform.position, shootPointRight.transform.rotation) as GameObject;
                 bulletClone.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-
+                FindObjectOfType<AudioManager>().Play("EnemyTurretShoot");
                 bulletTimer = 0;
 
             }

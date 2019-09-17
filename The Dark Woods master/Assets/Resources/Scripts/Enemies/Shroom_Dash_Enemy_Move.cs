@@ -66,7 +66,7 @@ public class Shroom_Dash_Enemy_Move : MonoBehaviour
 
             GetComponent<Rigidbody2D>().AddForce(Vector2.right * force);
 
-            Debug.Log("Aanval naar rechts");
+            FindObjectOfType<AudioManager>().Play("EnemyShroomDashSound");
 
             StartCoroutine(DashBack());
 

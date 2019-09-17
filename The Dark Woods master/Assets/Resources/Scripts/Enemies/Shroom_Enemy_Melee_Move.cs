@@ -63,6 +63,7 @@ public class Shroom_Enemy_Melee_Move : MonoBehaviour
             hit.collider.gameObject.GetComponent<Player_Health_Collectible>().Damage(1);
             hitTimer = 0;
             print("valalalltl aana");
+            FindObjectOfType<AudioManager>().Play("ShroomEnemyAttack");
             animator.SetBool("IsAttack", true);
         }
         else if (hit.collider.tag != "Player")
