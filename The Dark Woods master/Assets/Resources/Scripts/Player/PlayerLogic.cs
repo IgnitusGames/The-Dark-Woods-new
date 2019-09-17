@@ -85,9 +85,9 @@ public class PlayerLogic : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     //Make the player jump by adding force upward
-    void Jump()
+    public void Jump()
     {
-        gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jump_power);
+        this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jump_power);
         is_grounded = false;
         //jump = true;
     }
@@ -126,11 +126,11 @@ public class PlayerLogic : MonoBehaviour
             {
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(horizontal_move * player_speed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
             }
-            float VerticalMove = the_joystick.Vertical;
-            if (the_joystick.Vertical >= 0.5f && is_grounded)
-            {
-                Jump();
-            }
+            //float VerticalMove = the_joystick.Vertical;
+            //if (the_joystick.Vertical >= 0.5f && is_grounded)
+            //{
+            //    Jump();
+            //}
         }
         //player movement gets reset when he enters dialogue
         if (DialogueManager.is_in_dialogue)
