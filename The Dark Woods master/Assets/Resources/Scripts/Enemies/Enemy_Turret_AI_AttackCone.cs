@@ -16,13 +16,16 @@ public class Enemy_Turret_AI_AttackCone : MonoBehaviour
         {
 
             turretAI.Attack(true);
-          
-                
+
         }
         else
         {
-            turretAI.Attack(true);
-           
+            turretAI.Attack(false);
+
         }
     }
+
 }
+
+    
+       

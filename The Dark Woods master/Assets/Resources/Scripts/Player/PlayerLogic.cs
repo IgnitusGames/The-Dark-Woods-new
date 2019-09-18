@@ -91,7 +91,6 @@ public class PlayerLogic : MonoBehaviour
         is_grounded = false;
         //jump = true;
     }
-    //All raycasts the player should send
     void PlayerRaycast()
     {
         RaycastHit2D rayDown = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + ray_origin_y), Vector2.down); //create downward raycast

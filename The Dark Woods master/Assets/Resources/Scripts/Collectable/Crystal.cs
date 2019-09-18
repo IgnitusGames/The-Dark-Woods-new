@@ -18,7 +18,7 @@ public class Crystal : MonoBehaviour
     {
         if (trig.gameObject.tag == "Player")
         {
-            Debug.Log("player raakt aan");
+            FindObjectOfType<AudioManager>().Play("CrystalSound");
             trig.GetComponent<Player_Health_Collectible>().CrystalScore(1);
             Destroy(this.gameObject);
         }
