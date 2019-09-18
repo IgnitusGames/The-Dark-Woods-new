@@ -22,41 +22,16 @@ public class Enemy_Turret_AI_AttackCone : MonoBehaviour
         {
 
             turretAI.Attack(true);
-            //if (isLeft)
-            //{
-            //    turretAI.Attack(false);
-                
-            //}
-            //else
-            //{
-            //    turretAI.Attack(true);
-                
-<<<<<<< Updated upstream
-            //}
+
+        }
+        else
+        {
+            turretAI.Attack(false);
+
         }
     }
 
-    
-        
 }
 
-    //void OnTriggerStay2d(Collider2D trig)
-    //{
-    //    if (trig.gameObject.tag == "Player")
-    //    {
-    //        Debug.Log("aCooonewake is true");
-    //    }
-
-//void OnTriggerStay2d(Collider2D trig)
-
-=======
-        }
-            else
-            {
-                turretAI.Attack(false);
-           
-            }
-        }
-    }
-
->>>>>>> Stashed changes
+    
+       

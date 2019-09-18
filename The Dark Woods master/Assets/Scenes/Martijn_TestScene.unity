@@ -392,13 +392,10 @@ MonoBehaviour:
   player_max_health: 0
   player_curr_health: 0
   player_mana: 0
-<<<<<<< Updated upstream
-=======
   y_death_level: -20
   ray_origin_y: -1.8
   hit_distance: 0.1
   is_grounded: 0
->>>>>>> Stashed changes
   jump: 0
 --- !u!61 &1221862690
 BoxCollider2D:
@@ -877,101 +874,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1221862684}
-<<<<<<< Updated upstream
-  xMin: -50
-  xMax: 50
-  yMin: 0
-  yMax: 0
---- !u!1001 &1562586147
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6784964735577024545, guid: 4d290b93c93ac664a99018b7c358fd11,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy_Vlinder
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784964735577024557, guid: 4d290b93c93ac664a99018b7c358fd11,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784964735577024557, guid: 4d290b93c93ac664a99018b7c358fd11,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784964735577024557, guid: 4d290b93c93ac664a99018b7c358fd11,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 6.500155
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784964735577024557, guid: 4d290b93c93ac664a99018b7c358fd11,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784964735577024557, guid: 4d290b93c93ac664a99018b7c358fd11,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784964735577024557, guid: 4d290b93c93ac664a99018b7c358fd11,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784964735577024557, guid: 4d290b93c93ac664a99018b7c358fd11,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784964735577024557, guid: 4d290b93c93ac664a99018b7c358fd11,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784964735577024557, guid: 4d290b93c93ac664a99018b7c358fd11,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784964735577024557, guid: 4d290b93c93ac664a99018b7c358fd11,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784964735577024557, guid: 4d290b93c93ac664a99018b7c358fd11,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784964735577024558, guid: 4d290b93c93ac664a99018b7c358fd11,
-        type: 3}
-      propertyPath: EnemySpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784964735577024558, guid: 4d290b93c93ac664a99018b7c358fd11,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784964735577024558, guid: 4d290b93c93ac664a99018b7c358fd11,
-        type: 3}
-      propertyPath: frequency
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4d290b93c93ac664a99018b7c358fd11, type: 3}
-=======
   x_min: 0
   x_max: 0
   y_min: 0
   y_max: 0
->>>>>>> Stashed changes
 --- !u!1 &1592537933
 GameObject:
   m_ObjectHideFlags: 0

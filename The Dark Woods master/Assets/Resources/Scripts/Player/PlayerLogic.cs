@@ -23,7 +23,7 @@ public class PlayerLogic : MonoBehaviour
     public int player_max_health;
     public int player_curr_health;
     public int player_mana;
-<<<<<<< Updated upstream
+
 
     private float HorizontalMove;
     private bool GoingRight = true;
@@ -36,16 +36,15 @@ public class PlayerLogic : MonoBehaviour
         IsFireing = false;
         FireInstance = null;
     }
-=======
     public int y_death_level;
     public float ray_origin_y;
     public float hit_distance;
     public bool is_grounded = true;
-    public bool jump;
+
     
     private float horizontal_move;
     private bool going_right = true;
->>>>>>> Stashed changes
+
     // Update is called once per frame
     void Update()
     {
@@ -168,14 +167,7 @@ public class PlayerLogic : MonoBehaviour
         
         //jump = true;
     }
-<<<<<<< Updated upstream
-=======
-    //All raycasts the player should send
-    public void OnLanding()
-    {
-        FindObjectOfType<AudioManager>().Play("FloorHit");
-    }
->>>>>>> Stashed changes
+
     void PlayerRaycast()
     {
         RaycastHit2D rayDown = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + RayOriginY), Vector2.down);
