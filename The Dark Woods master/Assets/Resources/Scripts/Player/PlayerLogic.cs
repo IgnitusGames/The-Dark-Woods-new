@@ -26,7 +26,6 @@ public class PlayerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerRaycast();
         Movement();
         //if (IsGrounded == false)
         //{
@@ -79,6 +78,14 @@ public class PlayerLogic : MonoBehaviour
             animator.SetBool("is_jumping", false);
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+        {
+            is_grounded = true;
+            Debug.Log("op de grond");
+        }
+    }
     //Kill the player (technically reloading the level)
     public void Die()
     {
@@ -87,20 +94,24 @@ public class PlayerLogic : MonoBehaviour
     //Make the player jump by adding force upward
     public void Jump()
     {
-        this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jump_power);
-        is_grounded = false;
+        if(is_grounded)
+        {
+            is_grounded = false;
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jump_power);
+        }
         //jump = true;
     }
-    void PlayerRaycast()
-    {
-        RaycastHit2D rayDown = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + ray_origin_y), Vector2.down); //create downward raycast
-        //test if the downward ray is short enough to consider the player grounded
-        if (rayDown != null && rayDown.collider != null && rayDown.distance < hit_distance && rayDown.collider.tag != "Enemy")
-        {
-            is_grounded = true;         
-        }
-    }
-    //Turn the player game object (and children)
+    //void PlayerRaycast()
+    //{
+    //    RaycastHit2D rayDown = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down); //create downward raycast
+    //    //test if the downward ray is short enough to consider the player grounded
+    //    Debug.DrawRay(new Vector3(rayDown.centroid.x, rayDown.centroid.y, transform.position.z), new Vector3(rayDown.point.x, rayDown.point.y, transform.position.z));
+    //    if (rayDown != null && rayDown.collider != null && rayDown.distance <= 0 && rayDown.collider.tag != "Enemy")
+    //    {
+    //        is_grounded = true;         
+    //    }
+    //}
+    //Turn the player gamne object (and children)
     void FlipPlayer()
     {
         going_right = !going_right;
