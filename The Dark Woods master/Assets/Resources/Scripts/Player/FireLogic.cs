@@ -6,15 +6,23 @@ using UnityEngine;
 public class FireLogic : MonoBehaviour
 {
     //Variables
-    public int Damage;
+    public int Damage =1;
+
+
     //Unity functions
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public void Update()
+    {
+        
+    }
+    private void OnTriggerStay2D(Collider2D collision)
     {
         //Code below is executed when the fire prefab this script is attatched to comes in contact with an enemy
         if(collision.gameObject.tag == "enemy")
         {
-            Destroy(collision.gameObject); //Kills the enemy the fire has collided with
+            collision.GetComponent<Enemy_Health>().EnemyDamage(1);
             Debug.Log("Dealing " + Damage + " damage");
+          
         }
     }
 }

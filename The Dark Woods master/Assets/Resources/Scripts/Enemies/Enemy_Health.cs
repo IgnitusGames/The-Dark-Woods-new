@@ -7,11 +7,16 @@ public class Enemy_Health : MonoBehaviour
     public int enemy_curr_health;
     public int enemy_max_health;
 
+    private void Start()
+    {
+        enemy_curr_health = enemy_max_health;
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-       if (gameObject.transform.position.y <-10 || enemy_curr_health <= 0)
+       if (gameObject.transform.position.y <-50 || enemy_curr_health <= 0)
         {
             Destroy(gameObject);
         }
