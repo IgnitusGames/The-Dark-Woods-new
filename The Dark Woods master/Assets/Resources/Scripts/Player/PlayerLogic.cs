@@ -20,9 +20,10 @@ public class PlayerLogic : MonoBehaviour
     public float hit_distance;
     public bool is_grounded = true;
     public bool jump;
+    public float force = 100;
 
     private float horizontal_move;
-    private bool going_right = true;
+    public bool going_right = true;
     // Update is called once per frame
     void Update()
     {
@@ -116,6 +117,28 @@ public class PlayerLogic : MonoBehaviour
     {
         going_right = !going_right;
         transform.Rotate(0f, 180f, 0f);
+    }
+    private void OnCollisionEnter2D(Collision2D collision2d)
+    {
+
+
+
+        if (collision2d.gameObject.tag == "enemy" && going_right == true)
+        {
+            print("osdfoadsfjk");
+            GetComponent<Rigidbody2D>().AddForce(Vector2.left * (force));
+
+
+        }
+        if (collision2d.gameObject.tag == "enemy" && going_right == false)
+        {
+
+            GetComponent<Rigidbody2D>().AddForce(Vector2.right * (force));
+
+
+        }
+
+
     }
     void Movement()
     {

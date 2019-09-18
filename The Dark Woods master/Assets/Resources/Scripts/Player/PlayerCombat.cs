@@ -12,6 +12,7 @@ public class PlayerCombat : MonoBehaviour
 
     private GameObject fire_instance;
     private bool is_fireing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
         //if(Input.touchCount > 0)
         //{
         //    if (!DialogueManager.is_in_dialogue)
@@ -64,6 +66,7 @@ public class PlayerCombat : MonoBehaviour
             }
             fire_instance.transform.SetParent(fire_point.transform);
             fire_instance.GetComponent<FireLogic>().Damage = fire_damage;
+          
         }
     }
     //Remove fire attack from the scene

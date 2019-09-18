@@ -12,6 +12,8 @@ public class Player_Health_Collectible : MonoBehaviour
     public int damage;
     public bool hasDied;
     public int crystal_score;
+    public float force = 1000;
+    
 
 
     // Start is called before the first frame update
@@ -54,7 +56,8 @@ public class Player_Health_Collectible : MonoBehaviour
     {
         curHealth -= dmg;
     }
-    public void CrystalScore(int crystalscore)
+    
+        public void CrystalScore(int crystalscore)
     {
         crystal_score += crystalscore;
         print(crystal_score);

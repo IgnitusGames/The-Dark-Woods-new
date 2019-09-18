@@ -10,7 +10,7 @@ public class Enemy_Vlinder : MonoBehaviour
     //public bool facingRight = true;
     private Player_Health_Collectible player;
 
-    public float force;
+    public float force = 5000;
 
     //public Player_health player_Health;
 
@@ -85,6 +85,7 @@ public class Enemy_Vlinder : MonoBehaviour
         {
             Debug.Log("pindakaas");
             collision2d.gameObject.GetComponent<Player_Health_Collectible>().Damage(1);
+  
 
         }
 
