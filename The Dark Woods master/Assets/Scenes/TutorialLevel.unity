@@ -942,6 +942,7 @@ GameObject:
   - component: {fileID: 137305489}
   - component: {fileID: 137305488}
   - component: {fileID: 137305487}
+  - component: {fileID: 137305492}
   m_Layer: 0
   m_Name: Enemy_Vlinder 1 (2)
   m_TagString: enemy
@@ -1088,6 +1089,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &137305492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137305486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7a0b54b660d7946a135dd62d521367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_curr_health: 0
+  enemy_max_health: 20
 --- !u!1001 &140448060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2034,6 +2049,26 @@ Transform:
   m_Father: {fileID: 1064541984}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &373204103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1429631797588375251, guid: 40960d97697488541b6ef1a9db975a1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1146103065}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &373204104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373204103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7a0b54b660d7946a135dd62d521367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_curr_health: 0
+  enemy_max_health: 60
 --- !u!1001 &378230176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7339,6 +7374,7 @@ GameObject:
   - component: {fileID: 1430523417}
   - component: {fileID: 1430523416}
   - component: {fileID: 1430523415}
+  - component: {fileID: 1430523420}
   m_Layer: 0
   m_Name: Enemy_Vlinder 1
   m_TagString: enemy
@@ -7485,6 +7521,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1430523420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430523414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7a0b54b660d7946a135dd62d521367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_curr_health: 0
+  enemy_max_health: 20
 --- !u!4 &1446122462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4639450538742511128, guid: d4d6e2fb9826d31468b494fd566518aa,
@@ -8034,6 +8084,26 @@ Transform:
   m_Father: {fileID: 1575692106}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1588898500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1429631797588375251, guid: 40960d97697488541b6ef1a9db975a1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 981021872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1588898501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588898500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7a0b54b660d7946a135dd62d521367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_curr_health: 0
+  enemy_max_health: 60
 --- !u!1 &1601254673
 GameObject:
   m_ObjectHideFlags: 0
@@ -9548,6 +9618,7 @@ GameObject:
   - component: {fileID: 1867750578}
   - component: {fileID: 1867750577}
   - component: {fileID: 1867750576}
+  - component: {fileID: 1867750581}
   m_Layer: 0
   m_Name: Enemy_Vlinder 1 (1)
   m_TagString: enemy
@@ -9694,6 +9765,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1867750581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867750575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7a0b54b660d7946a135dd62d521367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_curr_health: 0
+  enemy_max_health: 20
 --- !u!114 &1873003296 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4316254987389502311, guid: 8f096dc34257d76468f235a0089dd818,
@@ -10317,6 +10402,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d764dac66c8de2c4c949dac90def0bce, type: 3}
+--- !u!1 &1973888523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4573963931531623695, guid: f2a34baaa9e45b54493bec7309c6329e,
+    type: 3}
+  m_PrefabInstance: {fileID: 257224228}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1973888524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973888523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7a0b54b660d7946a135dd62d521367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_curr_health: 0
+  enemy_max_health: 60
 --- !u!4 &1974026707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4639450538742511128, guid: d4d6e2fb9826d31468b494fd566518aa,
