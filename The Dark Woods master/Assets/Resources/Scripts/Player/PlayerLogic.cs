@@ -118,28 +118,28 @@ public class PlayerLogic : MonoBehaviour
         going_right = !going_right;
         transform.Rotate(0f, 180f, 0f);
     }
-    private void OnCollisionEnter2D(Collision2D collision2d)
-    {
+    //private void OnCollisionEnter2D(Collision2D collision2d)
+    //{
 
 
 
-        if (collision2d.gameObject.tag == "enemy" && going_right == true)
-        {
-            print("osdfoadsfjk");
-            GetComponent<Rigidbody2D>().AddForce(Vector2.left * (force));
+    //    if (collision2d.gameObject.tag == "enemy" && going_right == true)
+    //    {
+    //        print("osdfoadsfjk");
+    //        GetComponent<Rigidbody2D>().AddForce(Vector2.left * (force));
 
 
-        }
-        if (collision2d.gameObject.tag == "enemy" && going_right == false)
-        {
+    //    }
+    //    if (collision2d.gameObject.tag == "enemy" && going_right == false)
+    //    {
 
-            GetComponent<Rigidbody2D>().AddForce(Vector2.right * (force));
-
-
-        }
+    //        GetComponent<Rigidbody2D>().AddForce(Vector2.right * (force));
 
 
-    }
+    //    }
+
+
+    //}
     void Movement()
     {
         float horizontal_move = the_joystick.Horizontal;

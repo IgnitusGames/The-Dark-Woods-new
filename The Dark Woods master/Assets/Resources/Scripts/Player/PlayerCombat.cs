@@ -59,14 +59,18 @@ public class PlayerCombat : MonoBehaviour
             if (fire_point.transform.position.x < this.transform.position.x)
             {
                 fire_instance = Instantiate(fire, new Vector3(this.fire_point.transform.position.x - (fire.GetComponent<Renderer>().bounds.size.x / 2), this.fire_point.transform.position.y, this.fire_point.transform.position.z), Quaternion.Euler(this.fire_point.transform.rotation.x, this.fire_point.transform.rotation.y, this.fire_point.transform.rotation.z + 180));
+                FindObjectOfType<AudioManager>().Play("PlayerFire");
             }
             else if (fire_point.transform.position.x > this.transform.position.x)
             {
                 fire_instance = Instantiate(fire, new Vector3(this.fire_point.transform.position.x + (fire.GetComponent<Renderer>().bounds.size.x / 2), this.fire_point.transform.position.y, this.fire_point.transform.position.z), Quaternion.Euler(this.fire_point.transform.rotation.x, this.fire_point.transform.rotation.y, this.fire_point.transform.rotation.z));
+                FindObjectOfType<AudioManager>().Play("PlayerFire");
             }
             fire_instance.transform.SetParent(fire_point.transform);
             fire_instance.GetComponent<FireLogic>().Damage = fire_damage;
-          
+            
+
+
         }
     }
     //Remove fire attack from the scene
