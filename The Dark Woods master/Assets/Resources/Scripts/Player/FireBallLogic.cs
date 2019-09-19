@@ -17,8 +17,9 @@ public class FireBallLogic : MonoBehaviour
         //Code below is executed when the fire prefab this script is attatched to comes in contact with an enemy
         if (collision.gameObject.tag == "enemy")
         {
-            collision.GetComponent<Enemy_Health>().EnemyDamage(1);
+            collision.GetComponent<Enemy_Health>().EnemyDamage(Damage);
             Debug.Log("Dealing " + Damage + " damage");
+            Destroy(this.gameObject);
         }
         else if (collision.gameObject.tag != "Attack" && collision.gameObject.tag != "Player")
         {
