@@ -11161,6 +11161,7 @@ PrefabInstance:
     - target: {fileID: 2856265067948934435, guid: 54b96fecab0c6704c989b7d21669ead3,
         type: 3}
       propertyPath: fire_speed
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54b96fecab0c6704c989b7d21669ead3, type: 3}
@@ -11542,6 +11543,7 @@ MonoBehaviour:
   the_joystick: {fileID: 0}
   fire_point: {fileID: 1665619418}
   fire_damage: 0
+  fire_speed: 20
 --- !u!114 &4856236835234470144
 MonoBehaviour:
   m_ObjectHideFlags: 0
