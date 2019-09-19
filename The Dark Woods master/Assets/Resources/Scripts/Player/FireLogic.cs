@@ -22,7 +22,7 @@ public class FireLogic : MonoBehaviour
         {
             print("daNdamsd");
             //collision.GetComponent<Enemy_Health>().EnemyDamage(1);
-            collision.GetComponent<HealthComponent>().TakeDamage(1);
+            collision.GetComponent<HealthComponent>().TakeDamage(Damage);
             //Debug.Log("Dealing " + Damage + " damage");
           
         }

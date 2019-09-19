@@ -6,7 +6,7 @@ using UnityEngine;
 public class FireBallLogic : MonoBehaviour
 {
     //Variables
-    public int Damage = 5;
+    public int Damage = 10;
     //Unity functions
     public void Update()
     {
@@ -17,7 +17,7 @@ public class FireBallLogic : MonoBehaviour
         //Code below is executed when the fire prefab this script is attatched to comes in contact with an enemy
         if (collision.gameObject.tag == "enemy")
         {
-            collision.GetComponent<HealthComponent>().TakeDamage(10);
+            collision.GetComponent<HealthComponent>().TakeDamage(Damage);
             Debug.Log("Dealing " + Damage + " damage");
             Destroy(this.gameObject);
         }
