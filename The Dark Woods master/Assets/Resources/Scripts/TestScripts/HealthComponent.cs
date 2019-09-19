@@ -12,12 +12,13 @@ public sealed class HealthComponent : MonoBehaviour
 
     [SerializeField]
     private UnityEvent onDied;
-
+    public bool take_damage;
 
     private float health;
     private float maximumHealth;
     public float enemy_curr_health;
     public float enemy_max_health;
+    public float take_dmg_time;
     private void Start()
     {
         enemy_curr_health = enemy_max_health;
@@ -72,13 +73,28 @@ public sealed class HealthComponent : MonoBehaviour
     public void TakeDamage(float damage)
     {
         enemy_curr_health -= damage;
+        if(damage > 0)
+        {
+            take_damage = true;
 
+            TakeDamageReset();
+        }
+       
         // Has the player just died?
         if (enemy_curr_health <= 0)
         {
             this.OnDiedEvent();
             print("dood");
             Destroy(gameObject);
+        }
+        IEnumerator TakeDamageReset()
+        {
+
+            yield return new WaitForSeconds(take_dmg_time);
+        
+                take_damage = false;
+           
+
         }
     }
 }
