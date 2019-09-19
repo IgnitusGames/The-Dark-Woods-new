@@ -11460,6 +11460,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fire: {fileID: 4680015687783685550, guid: dc347d2c4c27e514eafd3be88ed17478, type: 3}
+  fire_ball: {fileID: 7843121306967399654, guid: 85ec0b6c05b13d74b8e8057c96cccba7,
+    type: 3}
   the_joystick: {fileID: 0}
   fire_point: {fileID: 1665619418}
   fire_damage: 0

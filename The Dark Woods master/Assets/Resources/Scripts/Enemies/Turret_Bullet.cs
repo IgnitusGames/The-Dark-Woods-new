@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class Turret_Bullet : MonoBehaviour
 {
-
     void Update()
     {
         Destroy(this.gameObject, 5);
@@ -22,5 +19,4 @@ public class Turret_Bullet : MonoBehaviour
             Destroy(this.gameObject, 1);
         }
     }
-
 }

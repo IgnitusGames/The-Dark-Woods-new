@@ -6,9 +6,11 @@ public class PlayerCombat : MonoBehaviour
 {
     //Variables
     public GameObject fire;
+    public GameObject fire_ball;
     public Joystick the_joystick;
     public GameObject fire_point;
     public int fire_damage;
+    public int fire_speed;
 
     private GameObject fire_instance;
     private bool is_fireing;
@@ -22,7 +24,6 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
         //if(Input.touchCount > 0)
         //{
         //    if (!DialogueManager.is_in_dialogue)
@@ -71,6 +72,26 @@ public class PlayerCombat : MonoBehaviour
             
 
 
+        }
+    }
+    public void FireBallAtack()
+    {
+        if (fire_point.transform.position.x < this.transform.position.x)
+        {
+            GameObject fire_ball_instance;
+            fire_ball_instance = Instantiate(fire_ball, fire_point.transform.position, Quaternion.Euler(this.fire_point.transform.rotation.x, this.fire_point.transform.rotation.y, this.fire_point.transform.rotation.z + 180)) as GameObject;
+            fire_ball_instance = Instantiate(fire_ball) as GameObject;
+            fire_ball_instance.transform.SetParent(fire_point.transform);
+            fire_ball_instance.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * fire_speed;
+            Debug.Log("bal links");
+        }
+        else if (fire_point.transform.position.x > this.transform.position.x)
+        {
+            GameObject fire_ball_instance;
+            fire_ball_instance = Instantiate(fire_ball) as GameObject;
+            fire_ball_instance.transform.SetParent(fire_point.transform);
+            fire_ball_instance.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * fire_speed;
+            Debug.Log("bal rechts");
         }
     }
     //Remove fire attack from the scene
