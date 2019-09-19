@@ -17,7 +17,7 @@ public class Turret_Bullet : MonoBehaviour
         if (trig.gameObject.tag == "Player")
         {
             FindObjectOfType<AudioManager>().Play("EnemyTurretBulletHit");
-            Debug.Log("playergehit");
+           
             trig.GetComponent<Player_Health_Collectible>().Damage(1);
             Destroy(this.gameObject, 1);
         }

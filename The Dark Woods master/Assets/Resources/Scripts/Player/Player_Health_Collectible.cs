@@ -12,6 +12,7 @@ public class Player_Health_Collectible : MonoBehaviour
     public int damage;
     public bool hasDied;
     public int crystal_score;
+    public int gold_score;
     public float force = 1000;
     
 
@@ -55,12 +56,22 @@ public class Player_Health_Collectible : MonoBehaviour
     public void Damage(int dmg)
     {
         curHealth -= dmg;
+        FindObjectOfType<AudioManager>().Play("PlayerDmg");
     }
-    
-        public void CrystalScore(int crystalscore)
+    public void Health(int dmg)
+    {
+        curHealth += dmg;
+    }
+
+    public void CrystalScore(int crystalscore)
     {
         crystal_score += crystalscore;
         print(crystal_score);
+    }
+    public void GoldScore(int goldscore)
+    {
+        gold_score += goldscore;
+        print(gold_score);
     }
 }
 
