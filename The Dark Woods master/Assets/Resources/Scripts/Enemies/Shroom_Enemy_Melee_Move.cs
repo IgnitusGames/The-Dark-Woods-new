@@ -31,9 +31,6 @@ public class Shroom_Enemy_Melee_Move : MonoBehaviour
             //  player_Health.Die();    
         }
 
-
-
-
         Attack();
 
         // EnemySpeed = 4;
@@ -66,9 +63,10 @@ public class Shroom_Enemy_Melee_Move : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("ShroomEnemyAttack");
             animator.SetBool("IsAttack", true);
         }
-        else if (hit.collider.tag != "Player")
+        if (hit.collider.tag != "Player" && hit.distance > hitDistance)
         {
             EnemySpeed = 4;
+            animator.SetBool("IsAttack", false);
             //animator.SetBool("IsAttack", false);
         }
 

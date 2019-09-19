@@ -21,27 +21,42 @@ public class Turret_Ai : MonoBehaviour
     public Transform target;
     public Animator animator;
     public Transform shootPointLeft, shootPointRight;
+    AudioSource audioSource;
+    public HealthComponent enemy_health_component;
 
 
+    private Player_Health_Collectible player;
     private void Awake()
     {
         animator = gameObject.GetComponent<Animator>();
-
+        enemy_health_component = gameObject.GetComponentInParent<HealthComponent>();
 
     }
 
     private void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Health_Collectible>();
+        audioSource = GetComponent<AudioSource>();
     }
     private void Update()
     {
-        
-        RangeCheck();
-     
-        
-      
 
+        RangeCheck();
+        OnDamage();
+
+    }
+
+    void OnDamage()
+    {
+
+        if(enemy_health_component.take_damage == true)
+        {
+
+
+            FindObjectOfType<AudioManager>().Play("EnemyTurretDmg");
+            print("pannenkoek");
+        }
+     
     }
     void RangeCheck()
     {
@@ -86,6 +101,15 @@ public class Turret_Ai : MonoBehaviour
         }
   
       
+    }
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Player"))
+        {
+          
+
+           
+        }
     }
 
     public void Attack(bool attackingRight)
