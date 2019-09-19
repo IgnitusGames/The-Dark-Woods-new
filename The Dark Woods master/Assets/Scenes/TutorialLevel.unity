@@ -10440,6 +10440,73 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1914485476}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1986943255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4339430111753112979, guid: f1cce80943a48fc43abd0d34aa07db9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4339430112833726210}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1986943257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986943255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 551ca351346e09b4b94340103e9746d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hold_trigger_time: 0.5
+  OnLongCLick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4856236835234470143}
+        m_MethodName: BreatheFire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnNormalClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4856236835234470143}
+        m_MethodName: FireBallAtack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnClickStop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4856236835234470143}
+        m_MethodName: StopFire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &2012487492
 GameObject:
   m_ObjectHideFlags: 0
@@ -11091,6 +11158,10 @@ PrefabInstance:
       propertyPath: the_joystick
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2856265067948934435, guid: 54b96fecab0c6704c989b7d21669ead3,
+        type: 3}
+      propertyPath: fire_speed
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54b96fecab0c6704c989b7d21669ead3, type: 3}
 --- !u!1001 &3137476688911169178
@@ -11385,6 +11456,11 @@ PrefabInstance:
       objectReference: {fileID: 4856236835234470146}
     - target: {fileID: 4339430111753112977, guid: f1cce80943a48fc43abd0d34aa07db9e,
         type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339430111753112977, guid: f1cce80943a48fc43abd0d34aa07db9e,
+        type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4856236835234470143}
@@ -11403,7 +11479,8 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 429190091}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4339430111753112977, guid: f1cce80943a48fc43abd0d34aa07db9e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f1cce80943a48fc43abd0d34aa07db9e, type: 3}
 --- !u!4 &4856236835234469891
 Transform:

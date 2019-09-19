@@ -79,17 +79,14 @@ public class PlayerCombat : MonoBehaviour
         if (fire_point.transform.position.x < this.transform.position.x)
         {
             GameObject fire_ball_instance;
-            fire_ball_instance = Instantiate(fire_ball, fire_point.transform.position, Quaternion.Euler(this.fire_point.transform.rotation.x, this.fire_point.transform.rotation.y, this.fire_point.transform.rotation.z + 180)) as GameObject;
-            fire_ball_instance = Instantiate(fire_ball) as GameObject;
-            fire_ball_instance.transform.SetParent(fire_point.transform);
-            fire_ball_instance.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * fire_speed;
+            fire_ball_instance = Instantiate(fire_ball, fire_point.transform.position, Quaternion.Euler(fire_point.transform.rotation.x, 180, fire_point.transform.rotation.z)) as GameObject;
+            fire_ball_instance.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0) * fire_speed;
             Debug.Log("bal links");
         }
         else if (fire_point.transform.position.x > this.transform.position.x)
-        {
+        { 
             GameObject fire_ball_instance;
-            fire_ball_instance = Instantiate(fire_ball) as GameObject;
-            fire_ball_instance.transform.SetParent(fire_point.transform);
+            fire_ball_instance = Instantiate(fire_ball, fire_point.transform.position, Quaternion.identity) as GameObject;
             fire_ball_instance.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * fire_speed;
             Debug.Log("bal rechts");
         }

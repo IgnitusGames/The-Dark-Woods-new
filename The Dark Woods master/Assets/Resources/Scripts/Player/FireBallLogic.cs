@@ -12,7 +12,7 @@ public class FireBallLogic : MonoBehaviour
     {
         Destroy(this.gameObject, 5);
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         //Code below is executed when the fire prefab this script is attatched to comes in contact with an enemy
         if (collision.gameObject.tag == "enemy")
@@ -20,7 +20,7 @@ public class FireBallLogic : MonoBehaviour
             collision.GetComponent<Enemy_Health>().EnemyDamage(1);
             Debug.Log("Dealing " + Damage + " damage");
         }
-        else if(collision.gameObject.tag != "Attack")
+        else if (collision.gameObject.tag != "Attack" && collision.gameObject.tag != "Player")
         {
             Destroy(this.gameObject);
         }

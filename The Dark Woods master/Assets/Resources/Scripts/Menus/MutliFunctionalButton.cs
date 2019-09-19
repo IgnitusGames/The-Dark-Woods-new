@@ -11,6 +11,7 @@ public class MutliFunctionalButton : MonoBehaviour, IPointerDownHandler, IPointe
     public float hold_trigger_time;
     public UnityEvent OnLongCLick;
     public UnityEvent OnNormalClick;
+    public UnityEvent OnClickStop;
 
     private bool is_clicked;
     private bool has_lifted;
@@ -46,6 +47,13 @@ public class MutliFunctionalButton : MonoBehaviour, IPointerDownHandler, IPointe
             {
                 OnNormalClick.Invoke();
                 has_lifted = false;
+            }
+        }
+        else if(has_lifted && long_click_has_activated)
+        {
+            if(OnClickStop != null)
+            {
+                OnClickStop.Invoke();
             }
         }
     }
