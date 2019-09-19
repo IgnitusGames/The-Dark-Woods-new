@@ -77,7 +77,7 @@ public sealed class HealthComponent : MonoBehaviour
         {
             take_damage = true;
 
-            TakeDamageReset();
+           
         }
        
         // Has the player just died?
@@ -87,14 +87,6 @@ public sealed class HealthComponent : MonoBehaviour
             print("dood");
             Destroy(gameObject);
         }
-        IEnumerator TakeDamageReset()
-        {
-
-            yield return new WaitForSeconds(take_dmg_time);
-        
-                take_damage = false;
-           
-
-        }
+   
     }
 }
