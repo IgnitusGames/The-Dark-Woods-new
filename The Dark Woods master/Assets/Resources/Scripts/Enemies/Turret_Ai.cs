@@ -42,22 +42,10 @@ public class Turret_Ai : MonoBehaviour
     {
 
         RangeCheck();
-        OnDamage();
-
+    
     }
 
-    void OnDamage()
-    {
 
-        if(enemy_health_component.take_damage == true)
-        {
-
-
-            FindObjectOfType<AudioManager>().Play("EnemyTurretDmg");
-            print("pannenkoek");
-        }
-     
-    }
     void RangeCheck()
     {
         distance = Vector3.Distance(transform.position, target.transform.position);
@@ -102,14 +90,16 @@ public class Turret_Ai : MonoBehaviour
   
       
     }
-    void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (col.CompareTag("Player"))
+   
+        if (collision.gameObject.tag == "Attack")
         {
-          
 
-           
+            FindObjectOfType<AudioManager>().Play("EnemyTurretDmg");
+            gameObject.GetComponent<Animation>().Play("enemyturretdmg");
         }
+
     }
 
     public void Attack(bool attackingRight)

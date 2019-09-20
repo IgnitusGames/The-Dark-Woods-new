@@ -20,7 +20,7 @@ public class FireLogic : MonoBehaviour
         //Code below is executed when the fire prefab this script is attatched to comes in contact with an enemy
         if(collision.gameObject.tag == "enemy")
         {
-            print("daNdamsd");
+            
             //collision.GetComponent<Enemy_Health>().EnemyDamage(1);
             collision.GetComponent<HealthComponent>().TakeDamage(Damage);
             //Debug.Log("Dealing " + Damage + " damage");

@@ -50,6 +50,13 @@ public class Shroom_Dash_Enemy_Move : MonoBehaviour
 
             Flip();
         }
+        if (collision.gameObject.tag == "Attack")
+        {
+
+            FindObjectOfType<AudioManager>().Play("EnemyShroomDashOnDmg");
+            print("pannenkoekn");
+            gameObject.GetComponent<Animation>().Play("dmgtaken");
+        }
     }
 
     public void Attack()

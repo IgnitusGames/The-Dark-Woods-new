@@ -41,6 +41,14 @@ public class Shroom_Enemy_Melee_Move : MonoBehaviour
         {
             Flip();
         }
+        if (collision.gameObject.tag == "Attack")
+        {
+
+            FindObjectOfType<AudioManager>().Play("EnemyShroomDashOnDmg");
+            gameObject.GetComponent<Animation>().Play("shroommeleedmg");
+            print("pannenkoekn");
+        }
+        
     }
 
 

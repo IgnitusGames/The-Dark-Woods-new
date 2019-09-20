@@ -81,16 +81,33 @@ public class Enemy_Vlinder : MonoBehaviour
 
 
 
-        if (collision2d.gameObject.tag == "Player")
+        if (collision2d.gameObject.tag == "Player" && facingRight == true)
         {
-            Debug.Log("pindakaas");
+          
             collision2d.gameObject.GetComponent<Player_Health_Collectible>().Damage(1);
-  
+            MoveLeft();
+
+        }
+        if (collision2d.gameObject.tag == "Player" && facingRight == false)
+        {
+           
+            collision2d.gameObject.GetComponent<Player_Health_Collectible>().Damage(1);
+            MoveRight();
 
         }
 
 
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+       
+        if (collision.gameObject.tag == "Attack")
+        {
 
+            FindObjectOfType<AudioManager>().Play("EnemyShroomDashOnDmg");
+            print("pannenkoekn");
+        }
+
+    }
 }
 

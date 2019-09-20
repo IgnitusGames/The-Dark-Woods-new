@@ -11,7 +11,7 @@ public class HealthPickUp : MonoBehaviour
     {
         if (trig.gameObject.tag == "Player")
         {
-            FindObjectOfType<AudioManager>().Play("CrystalSound");
+            FindObjectOfType<AudioManager>().Play("HealthPickUp");
             trig.GetComponent<Player_Health_Collectible>().Health(2);
             Destroy(this.gameObject);
         }
