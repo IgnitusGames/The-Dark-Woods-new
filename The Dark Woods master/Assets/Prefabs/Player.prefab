@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4423908287656979740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.6, y: -8.4, z: -95}
+  m_LocalPosition: {x: -4.6, y: -8.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9079310219734049408}
@@ -160,6 +160,8 @@ MonoBehaviour:
   hit_distance: 0.1
   is_grounded: 1
   jump: 0
+  force: 100
+  going_right: 1
 --- !u!95 &4423908287656979683
 Animator:
   serializedVersion: 3
@@ -196,6 +198,8 @@ MonoBehaviour:
   damage: 0
   hasDied: 0
   crystal_score: 0
+  gold_score: 0
+  force: 1000
 --- !u!114 &4423908287656979741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,10 +213,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fire: {fileID: 4680015687783685550, guid: dc347d2c4c27e514eafd3be88ed17478, type: 3}
+  fire_ball: {fileID: 7843121306967399654, guid: 85ec0b6c05b13d74b8e8057c96cccba7,
+    type: 3}
   the_joystick: {fileID: 798282126480402856, guid: d764dac66c8de2c4c949dac90def0bce,
     type: 3}
   fire_point: {fileID: 9079310219734049411}
   fire_damage: 0
+  fire_speed: 0
+  animator: {fileID: 0}
+  is_fireing: 0
 --- !u!1 &9079310219734049411
 GameObject:
   m_ObjectHideFlags: 0

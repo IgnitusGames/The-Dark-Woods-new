@@ -11,7 +11,8 @@ public class PlayerLogic : MonoBehaviour
     public Animator animator;
     public Joystick the_joystick;
     public int player_speed = 10;
-    public int jump_power = 35;
+    public int strong_jump_power = 500;
+    public int normal_jump_power = 250;
     public int player_max_health;
     public int player_curr_health;
     public int player_mana;
@@ -92,27 +93,23 @@ public class PlayerLogic : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    public void StrongJump()
+    {
+        if(is_grounded)
+        {
+            is_grounded = false;
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * strong_jump_power);
+        }
+    }
     //Make the player jump by adding force upward
     public void Jump()
     {
         if(is_grounded)
         {
             is_grounded = false;
-            this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jump_power);
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * normal_jump_power);
         }
-        //jump = true;
     }
-    //void PlayerRaycast()
-    //{
-    //    RaycastHit2D rayDown = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down); //create downward raycast
-    //    //test if the downward ray is short enough to consider the player grounded
-    //    Debug.DrawRay(new Vector3(rayDown.centroid.x, rayDown.centroid.y, transform.position.z), new Vector3(rayDown.point.x, rayDown.point.y, transform.position.z));
-    //    if (rayDown != null && rayDown.collider != null && rayDown.distance <= 0 && rayDown.collider.tag != "Enemy")
-    //    {
-    //        is_grounded = true;         
-    //    }
-    //}
-    //Turn the player gamne object (and children)
     void FlipPlayer()
     {
         going_right = !going_right;
@@ -142,7 +139,7 @@ public class PlayerLogic : MonoBehaviour
     //}
     void Movement()
     {
-        float horizontal_move = the_joystick.Horizontal;
+ 
         animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
         if (!DialogueManager.is_in_dialogue)
         {

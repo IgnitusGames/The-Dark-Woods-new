@@ -12,6 +12,10 @@ public class Dialogue
 }
 public class SaveData
 {
+    string world_level;
+    float[] player_poition;
+    int player_level;
+    int gold_score;
     public SaveData()
     {
 

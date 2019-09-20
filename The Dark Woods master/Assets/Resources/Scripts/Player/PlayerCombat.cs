@@ -8,7 +8,6 @@ public class PlayerCombat : MonoBehaviour
     //Variables
     public GameObject fire;
     public GameObject fire_ball;
-    public Joystick the_joystick;
     public GameObject fire_point;
     public int fire_damage;
     public int fire_speed;
@@ -18,7 +17,6 @@ public class PlayerCombat : MonoBehaviour
     AudioSource fire_breath_audio;
     AudioSource errorAudio;
     AudioSource fire_ball_audio;
-
 
     // Start is called before the first frame update
     void Start()
@@ -33,31 +31,7 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(Input.touchCount > 0)
-        //{
-        //    if (!DialogueManager.is_in_dialogue)
-        //    {
-        //        if (Input.touchCount == 1)
-        //        {
-        //            if (the_joystick.Horizontal == 0 && the_joystick.Vertical == 0 && !PauseLogic.IsPaused)
-        //            {
-        //                BreatheFire();
-        //            }
-        //            if (Input.GetTouch(0).phase == TouchPhase.Ended)
-        //            {
-        //                StopFire();
-        //            }
-        //        }
-        //        if (Input.touchCount > 1)
-        //        {
-        //            BreatheFire();
-        //            if (Input.GetTouch(1).phase == TouchPhase.Ended)
-        //            {
-        //                StopFire();
-        //            }
-        //        }
-        //    }
-        //}
+
     }
     //custom functions
     //instantiate fire attack
@@ -78,15 +52,10 @@ public class PlayerCombat : MonoBehaviour
             {
                 fire_instance = Instantiate(fire, new Vector3(this.fire_point.transform.position.x + (fire.GetComponent<Renderer>().bounds.size.x / 2), this.fire_point.transform.position.y, this.fire_point.transform.position.z), Quaternion.Euler(this.fire_point.transform.rotation.x, this.fire_point.transform.rotation.y, this.fire_point.transform.rotation.z));
                 FindObjectOfType<AudioManager>().Play("PlayerFire");
-                
             }
             fire_instance.transform.SetParent(fire_point.transform);
             fire_instance.GetComponent<FireLogic>().Damage = fire_damage;
-            
-
-
-        }
-       
+        }     
     }
     public void FireBallAtack()
     {
