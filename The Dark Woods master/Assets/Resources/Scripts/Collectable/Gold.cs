@@ -18,7 +18,7 @@ public class Gold : MonoBehaviour
 
 
 
-            FindObjectOfType<AudioManager>().Play("CrystalSound");
+            FindObjectOfType<AudioManager>().Play("GoldSound");
             collision.gameObject.GetComponent<Player_Health_Collectible>().GoldScore(1);
             Destroy(this.gameObject);
 
