@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class Player_Health_Collectible : MonoBehaviour
 {
@@ -10,13 +12,17 @@ public class Player_Health_Collectible : MonoBehaviour
     public int damage;
     public bool hasDied;
     public int crystal_score;
-    public int gold_score;
+    public int gold_score = 0;
     public float force = 1000;
+    
+
 
     void Start()
     {
         hasDied = false;
         curHealth = maxHealth;
+       
+
     }
    
     void Update()
@@ -31,6 +37,7 @@ public class Player_Health_Collectible : MonoBehaviour
             Die();
 
         }
+        
 
     }
     public void Die()
@@ -57,6 +64,7 @@ public class Player_Health_Collectible : MonoBehaviour
     {
         gold_score += goldscore;
         print(gold_score);
+       
     }
 }
 
