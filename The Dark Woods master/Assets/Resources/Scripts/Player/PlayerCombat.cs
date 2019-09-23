@@ -10,14 +10,19 @@ public class PlayerCombat : MonoBehaviour
     public GameObject fire_ball;
     public Joystick the_joystick;
     public GameObject fire_point;
-    public int fire_damage;
-    public int fire_speed;
+    public float fire_damage;
+    public float fire_speed;
     public Animator animator;
     private GameObject fire_instance;
     public bool is_fireing;
     AudioSource fire_breath_audio;
     AudioSource errorAudio;
     AudioSource fire_ball_audio;
+    private Player_Health_Collectible player;
+
+    public float modifier;
+    public float dmg_increase;
+
 
 
     // Start is called before the first frame update
@@ -29,6 +34,7 @@ public class PlayerCombat : MonoBehaviour
         errorAudio = audios[0];
         fire_breath_audio = audios[1];
         fire_ball_audio = audios[2];
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Health_Collectible>();
     }
     // Update is called once per frame
     void Update()
@@ -58,6 +64,16 @@ public class PlayerCombat : MonoBehaviour
         //        }
         //    }
         //}
+
+        
+    }
+    public void Upgrade()
+    {
+        modifier = player.gold_score / 100;
+        fire_damage = fire_damage + modifier;
+        print(modifier);
+
+        //fire_damage = fire_damage + modifier;
     }
     //custom functions
     //instantiate fire attack
@@ -96,16 +112,18 @@ public class PlayerCombat : MonoBehaviour
             GameObject fire_ball_instance;
             fire_ball_instance = Instantiate(fire_ball, fire_point.transform.position, Quaternion.Euler(fire_point.transform.rotation.x, 180, fire_point.transform.rotation.z)) as GameObject;
             fire_ball_instance.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0) * fire_speed;
-            Debug.Log("bal links");
+           // Debug.Log("bal links");
             fire_ball_audio.Play();
+            fire_ball_instance.GetComponent<FireBallLogic>().Damage = fire_damage;
         }
         else if (fire_point.transform.position.x > this.transform.position.x)
         { 
             GameObject fire_ball_instance;
             fire_ball_instance = Instantiate(fire_ball, fire_point.transform.position, Quaternion.identity) as GameObject;
             fire_ball_instance.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * fire_speed;
-            Debug.Log("bal rechts");
+          //  Debug.Log("bal rechts");
             fire_ball_audio.Play();
+            fire_ball_instance.GetComponent<FireBallLogic>().Damage = fire_damage;
         }
     }
     //Remove fire attack from the scene

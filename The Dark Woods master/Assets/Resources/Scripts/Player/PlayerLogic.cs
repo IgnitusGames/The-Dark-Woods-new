@@ -89,7 +89,7 @@ public class PlayerLogic : MonoBehaviour
         if(collision.gameObject.tag == "Ground")
         {
             is_grounded = true;
-            Debug.Log("op de grond");
+           // Debug.Log("op de grond");
         }
         if (collision.gameObject.tag == "movplat")
         {

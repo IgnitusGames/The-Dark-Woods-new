@@ -11650,6 +11650,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5405322206602264753, guid: 54b96fecab0c6704c989b7d21669ead3,
+        type: 3}
+      propertyPath: gold_score
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54b96fecab0c6704c989b7d21669ead3, type: 3}
 --- !u!1001 &3137476688911169178
@@ -12099,11 +12104,14 @@ MonoBehaviour:
   fire: {fileID: 4680015687783685550, guid: dc347d2c4c27e514eafd3be88ed17478, type: 3}
   fire_ball: {fileID: 7843121306967399654, guid: 85ec0b6c05b13d74b8e8057c96cccba7,
     type: 3}
+  the_joystick: {fileID: 0}
   fire_point: {fileID: 1665619418}
   fire_damage: 1
   fire_speed: 20
   animator: {fileID: 4856236835234470145}
   is_fireing: 0
+  modifier: 0
+  dmg_increase: 0
 --- !u!114 &4856236835234470144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12122,7 +12130,7 @@ MonoBehaviour:
   damage: 0
   hasDied: 0
   crystal_score: 0
-  gold_score: 0
+  gold_score: 300
   force: 1000
 --- !u!95 &4856236835234470145
 Animator:
@@ -12160,8 +12168,7 @@ MonoBehaviour:
   animator: {fileID: 4856236835234470145}
   the_joystick: {fileID: 0}
   player_speed: 9
-  strong_jump_power: 500
-  normal_jump_power: 250
+  jump_power: 500
   player_max_health: 5
   player_curr_health: 3
   player_mana: 0

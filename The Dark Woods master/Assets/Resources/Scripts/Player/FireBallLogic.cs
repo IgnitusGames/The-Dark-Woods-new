@@ -6,7 +6,7 @@ using UnityEngine;
 public class FireBallLogic : MonoBehaviour
 {
     //Variables
-    public int Damage = 10;
+    public float Damage = 10;
     //Unity functions
     public void Update()
     {

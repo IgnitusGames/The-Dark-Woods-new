@@ -14,14 +14,16 @@ public class Player_Health_Collectible : MonoBehaviour
     public int crystal_score;
     public int gold_score = 0;
     public float force = 1000;
-    
+
+    private PlayerCombat player_combat;
+
 
 
     void Start()
     {
         hasDied = false;
         curHealth = maxHealth;
-       
+        player_combat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>();
 
     }
    
@@ -63,8 +65,9 @@ public class Player_Health_Collectible : MonoBehaviour
     public void GoldScore(int goldscore)
     {
         gold_score += goldscore;
-        print(gold_score);
-       
+        //print(gold_score);
+        player_combat.Upgrade();
     }
+   
 }
 
