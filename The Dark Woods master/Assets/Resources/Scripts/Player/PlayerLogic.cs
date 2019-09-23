@@ -105,6 +105,10 @@ public class PlayerLogic : MonoBehaviour
             this.transform.parent = null;
     }
     //Kill the player (technically reloading the level)
+    public void LevelUp()
+    {
+
+    }
     public void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
