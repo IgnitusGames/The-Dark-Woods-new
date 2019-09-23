@@ -9,7 +9,7 @@ public class PlayerCombat : MonoBehaviour
     public GameObject fire;
     public GameObject fire_ball;
     public GameObject fire_point;
-    public float fire_damage;
+    public float fire_damage =1 ;
     public float fire_speed;
     public Animator animator;
     private GameObject fire_instance;
@@ -68,8 +68,8 @@ public class PlayerCombat : MonoBehaviour
     public void Upgrade()
     {
         modifier = player.gold_score / 100;
-        fire_damage = fire_damage + modifier;
-        print(modifier);
+        fire_damage =+ modifier;
+        Debug.Log(modifier);
 
         //fire_damage = fire_damage + modifier;
     }
