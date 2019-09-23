@@ -22,10 +22,15 @@ public class PlayerLogic : MonoBehaviour
     public bool is_grounded = true;
     public bool jump;
     public float force = 100;
+    private Rigidbody2D rb2d;
 
     private float horizontal_move;
     public bool going_right = true;
     // Update is called once per frame
+    private void Start()
+    {
+        //StartCoroutine(KnockBack(0.02f, 350, transform.position));
+    }
     void Update()
     {
         Movement();
@@ -85,8 +90,19 @@ public class PlayerLogic : MonoBehaviour
         if(collision.gameObject.tag == "Ground")
         {
             is_grounded = true;
-            Debug.Log("op de grond");
+           // Debug.Log("op de grond");
         }
+        if (collision.gameObject.tag == "movplat")
+        {
+            is_grounded = true;
+            this.transform.parent = collision.transform;
+            Debug.Log("op platform");
+        }
+    }
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "movplat")
+            this.transform.parent = null;
     }
     //Kill the player (technically reloading the level)
     public void Die()
@@ -137,6 +153,20 @@ public class PlayerLogic : MonoBehaviour
 
 
     //}
+    private void OnTriggerEnter2D(Collider2D trig)
+    {
+        //if (collision.gameObject.tag == "EnemyCollider")
+        //{
+
+        //    Flip();
+        //    print("FLIP!");
+        //}
+        if (trig.gameObject.tag == "EnemyCollider")
+        {
+            print("playercheck");
+        }
+
+    }
     void Movement()
     {
         horizontal_move = the_joystick.Horizontal;
@@ -168,5 +198,23 @@ public class PlayerLogic : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, gameObject.GetComponent<Rigidbody2D>().velocity.y);
         }
+    }
+    public IEnumerator KnockBack(float knockDur, float knockBackPwr, Vector2 knockBackDir)
+    {
+
+        float timer = 0;
+        //rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+        while (knockDur > timer)
+        {
+            timer += Time.deltaTime;
+
+            this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            // rb2d.velocity = new Vector2(0, 0);   //<----------------------
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(knockBackDir.x * -100, knockBackDir.y + knockBackPwr, transform.position.z));
+
+           // knockbackDir.y + knockbackPwr
+        }
+        yield return 0;
+
     }
 }
