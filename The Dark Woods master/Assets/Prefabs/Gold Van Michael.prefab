@@ -8,12 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6397115486001235335}
-  - component: {fileID: 659454383184155799}
-  - component: {fileID: 2240004137872868541}
-  - component: {fileID: 764007376954393025}
+  - component: {fileID: 1156437778639161843}
+  - component: {fileID: 1156437778639161842}
+  - component: {fileID: 1156437778639161841}
+  - component: {fileID: 1156437778639161840}
   m_Layer: 0
-  m_Name: Gold 1
+  m_Name: Gold Van Michael
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
