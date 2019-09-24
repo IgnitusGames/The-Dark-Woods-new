@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6610755337884155465}
   - component: {fileID: 6610755337884155464}
   m_Layer: 0
-  m_Name: Spritesheet_collectables3_0
+  m_Name: Crystal_Top_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8269123339478510265, guid: 85a99267e2f3ba94f8a0de356cad92ac,
+  m_Sprite: {fileID: 1007628077995969469, guid: f10a17004a0d64002b7831bf20ab86e1,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,9 +98,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0.03, z: 0.01, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.33, y: 0.93}
+    oldSize: {x: 0.76, y: 0.94}
     newSize: {x: 0.33, y: 0.93}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

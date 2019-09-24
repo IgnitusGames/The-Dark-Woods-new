@@ -156,9 +156,9 @@ MonoBehaviour:
   distance: 0
   wakeRange: 9
   shoot: 0
-  bulletSpeed: 10
+  bulletSpeed: 1
   bulletTimer: 2
-  bulletInterval: 3
+  bulletInterval: 2
   awake: 0
   lookingRight: 0
   bullet: {fileID: 5441341888509901255, guid: 2aa42d6def2fc2e4fb1bfede0b4bd976, type: 3}
@@ -208,8 +208,6 @@ MonoBehaviour:
   onDied:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   take_damage: 0
   enemy_curr_health: 0
   enemy_max_health: 80

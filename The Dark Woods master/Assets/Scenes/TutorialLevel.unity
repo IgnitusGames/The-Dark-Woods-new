@@ -1108,8 +1108,6 @@ MonoBehaviour:
   onDied:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &140448060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2076,8 +2074,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 20
@@ -2708,7 +2704,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.937706
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3447,8 +3443,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3815,7 +3809,7 @@ Transform:
   m_LocalScale: {x: 1.605, y: 1.605, z: 1.605}
   m_Children: []
   m_Father: {fileID: 1064541984}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &775873277 stripped
 Transform:
@@ -4443,7 +4437,7 @@ Transform:
   m_LocalScale: {x: 1.605, y: 1.605, z: 1.605}
   m_Children: []
   m_Father: {fileID: 1064541984}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &850417904 stripped
 Transform:
@@ -5385,7 +5379,6 @@ Transform:
   - {fileID: 1675556283}
   - {fileID: 941546655}
   - {fileID: 666692575}
-  - {fileID: 1191790521}
   - {fileID: 1842579139}
   - {fileID: 1372375400}
   - {fileID: 1484794734}
@@ -5394,6 +5387,7 @@ Transform:
   - {fileID: 1463397512}
   - {fileID: 1847243742}
   - {fileID: 1413086541}
+  - {fileID: 1191790521}
   - {fileID: 524312714}
   - {fileID: 623797098}
   - {fileID: 98210325}
@@ -5934,6 +5928,56 @@ Transform:
   m_Father: {fileID: 336197874}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1170502868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4339430112974410966, guid: f1cce80943a48fc43abd0d34aa07db9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4339430112833726210}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1170502869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170502868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 551ca351346e09b4b94340103e9746d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hold_trigger_time: 0
+  OnLongCLick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4856236835234470146}
+        m_MethodName: StrongJump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnNormalClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4856236835234470146}
+        m_MethodName: Jump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnClickStop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1177576603
 GameObject:
   m_ObjectHideFlags: 0
@@ -6183,7 +6227,7 @@ Transform:
   m_LocalScale: {x: 1.132, y: 1.132, z: 1.132}
   m_Children: []
   m_Father: {fileID: 1064541984}
-  m_RootOrder: 22
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1191790522
 MonoBehaviour:
@@ -6996,7 +7040,7 @@ Transform:
   m_LocalScale: {x: 1.605, y: 1.605, z: 1.605}
   m_Children: []
   m_Father: {fileID: 1064541984}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1413086539
 GameObject:
@@ -7077,7 +7121,7 @@ Transform:
   m_LocalScale: {x: 1.605, y: 1.605, z: 1.605}
   m_Children: []
   m_Father: {fileID: 1064541984}
-  m_RootOrder: 30
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1420375043
 PrefabInstance:
@@ -7406,8 +7450,6 @@ MonoBehaviour:
   onDied:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1440794902 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3530217328464127179, guid: f1cce80943a48fc43abd0d34aa07db9e,
@@ -7441,8 +7483,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   OnNormalClick:
     m_PersistentCalls:
       m_Calls:
@@ -7457,41 +7497,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   OnClickStop:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &1440794904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440794902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 551ca351346e09b4b94340103e9746d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hold_trigger_time: 0
-  OnLongCLick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnNormalClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnClickStop:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!4 &1446122462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4639450538742511128, guid: d4d6e2fb9826d31468b494fd566518aa,
@@ -7589,7 +7597,7 @@ Transform:
   m_LocalScale: {x: 1.605, y: 1.605, z: 1.605}
   m_Children: []
   m_Father: {fileID: 1064541984}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1484422588 stripped
 Transform:
@@ -7676,7 +7684,7 @@ Transform:
   m_LocalScale: {x: 1.605, y: 1.605, z: 1.605}
   m_Children: []
   m_Father: {fileID: 1064541984}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1509836943
 GameObject:
@@ -9344,7 +9352,7 @@ Transform:
   m_LocalScale: {x: 1.605, y: 1.605, z: 1.605}
   m_Children: []
   m_Father: {fileID: 1064541984}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1844780342
 PrefabInstance:
@@ -9494,7 +9502,7 @@ Transform:
   m_LocalScale: {x: 1.605, y: 1.605, z: 1.605}
   m_Children: []
   m_Father: {fileID: 1064541984}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1865282505
 GameObject:
@@ -9715,8 +9723,6 @@ MonoBehaviour:
   onDied:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1873003296 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4316254987389502311, guid: 8f096dc34257d76468f235a0089dd818,
@@ -10379,8 +10385,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   OnNormalClick:
     m_PersistentCalls:
       m_Calls:
@@ -10395,8 +10399,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   OnClickStop:
     m_PersistentCalls:
       m_Calls:
@@ -10411,8 +10413,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &2012487492
 GameObject:
   m_ObjectHideFlags: 0
@@ -10839,8 +10839,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 16
@@ -11061,6 +11059,16 @@ PrefabInstance:
         type: 3}
       propertyPath: player_curr_health
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405322206602264651, guid: 54b96fecab0c6704c989b7d21669ead3,
+        type: 3}
+      propertyPath: strong_jump_power
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405322206602264651, guid: 54b96fecab0c6704c989b7d21669ead3,
+        type: 3}
+      propertyPath: normal_jump_power
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2856265067948934435, guid: 54b96fecab0c6704c989b7d21669ead3,
         type: 3}
@@ -11527,8 +11535,8 @@ MonoBehaviour:
   animator: {fileID: 4856236835234470145}
   the_joystick: {fileID: 0}
   player_speed: 9
-  strong_jump_power: 500
-  normal_jump_power: 250
+  strong_jump_power: 600
+  normal_jump_power: 400
   player_max_health: 5
   player_curr_health: 3
   player_mana: 0
