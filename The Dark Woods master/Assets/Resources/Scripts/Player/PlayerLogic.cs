@@ -23,6 +23,7 @@ public class PlayerLogic : MonoBehaviour
     public bool jump;
     public float force = 100;
     private Rigidbody2D rb2d;
+  
 
     private float horizontal_move;
     public bool going_right = true;
@@ -35,6 +36,8 @@ public class PlayerLogic : MonoBehaviour
     void Update()
     {
         Movement();
+       
+
         //if (IsGrounded == false)
         //{
         //    animator.SetBool("is_jumping", true);
@@ -204,22 +207,22 @@ public class PlayerLogic : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, gameObject.GetComponent<Rigidbody2D>().velocity.y);
         }
     }
-    public IEnumerator KnockBack(float knockDur, float knockBackPwr, Vector2 knockBackDir)
+    public IEnumerator KnockBack(float knockDur, float knockBackPwr, Vector3 knockBackDirection)
     {
-
+        
         float timer = 0;
-        //rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
         while (knockDur > timer)
         {
             timer += Time.deltaTime;
-
-            this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-            // rb2d.velocity = new Vector2(0, 0);   //<----------------------
-            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(knockBackDir.x * -100, knockBackDir.y + knockBackPwr, transform.position.z));
-
-           // knockbackDir.y + knockbackPwr
+            //<----------------------
+            this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(this.gameObject.GetComponent<Rigidbody2D>().velocity.x, 0);
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(-knockBackDirection.x, -knockBackDirection.y + knockBackPwr, transform.position.z));
+            print("yeet");
+            
         }
         yield return 0;
 
     }
 }
+
+        

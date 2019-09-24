@@ -8,8 +8,8 @@ public class Enemy_Vlinder : MonoBehaviour
     public int EnemySpeed;
     public int XMoveDirection;
     //public bool facingRight = true;
-    private Player_Health_Collectible player;
-
+    private Player_Health_Collectible player_health;
+    private PlayerLogic player;
     public float force = 5000;
 
     //public Player_health player_Health;
@@ -34,7 +34,7 @@ public class Enemy_Vlinder : MonoBehaviour
         pos = transform.position;
 
         localScale = transform.localScale;
-
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLogic>();
     }
 
     // Update is called once per frame
@@ -106,7 +106,9 @@ public class Enemy_Vlinder : MonoBehaviour
 
             FindObjectOfType<AudioManager>().Play("EnemyShroomDashOnDmg");
             print("pannenkoekn");
+            player.StartCoroutine(player.KnockBack(0.02f, 100, player.transform.position));
         }
+
 
     }
 }

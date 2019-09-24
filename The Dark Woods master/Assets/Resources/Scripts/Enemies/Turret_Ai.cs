@@ -62,10 +62,10 @@ public class Turret_Ai : MonoBehaviour
 
             if (target.transform.position.x < transform.position.x)
             {
-
                 animator.SetBool("attackleft", true);
                 animator.SetBool("attackright", false);
                 animator.SetBool("idle", false);
+
             }
             else if (target.transform.position.x > transform.position.x)
             {
