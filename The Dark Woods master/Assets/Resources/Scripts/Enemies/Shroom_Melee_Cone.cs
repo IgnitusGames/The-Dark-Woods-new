@@ -15,12 +15,13 @@ public class Shroom_Melee_Cone : MonoBehaviour
     }
 
 
-    void OnTriggerEnter2D(Collider2D trig)
+    void OnTriggerStay2D(Collider2D trig)
     {
         if (trig.gameObject.tag == "Player")
         {
             print("inrange");
             enemy_move.Attack();
+            enemy_move.EnemySpeed = 0;
             //animator.SetBool("attack", true);
             // print("inrange");
             //animator.SetBool("attack", true);

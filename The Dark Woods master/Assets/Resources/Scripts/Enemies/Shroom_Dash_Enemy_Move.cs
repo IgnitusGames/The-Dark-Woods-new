@@ -10,7 +10,7 @@ public class Shroom_Dash_Enemy_Move : MonoBehaviour
     public int EnemySpeed;
     public int XMoveDirection;
     public bool facingRight = true;
-    private Player_Health_Collectible player;
+    //private Player_Health_Collectible player;
 
     public float force;
     public float hitTimer = 5;
@@ -18,12 +18,12 @@ public class Shroom_Dash_Enemy_Move : MonoBehaviour
     public float dash_time;
     public Animator animator;
     public float hitDistance;
+    //Vector2 currpos = transform.position;
 
-
-
+    private PlayerLogic player;
     private void Start()
     {
-
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLogic>();
     }
 
     void Update()
@@ -33,16 +33,16 @@ public class Shroom_Dash_Enemy_Move : MonoBehaviour
     }
 
     //Flip op collision met muur, damage op collision player
-    private void OnCollisionEnter2D(Collision2D collision2d)
-    {
-        if (collision2d.gameObject.tag == "Player")
-        {
+    //private void OnCollisionEnter2D(Collision2D collision2d)
+    //{
+    //    if (collision2d.gameObject.tag == "Player")
+    //    {
            
-            collision2d.gameObject.GetComponent<Player_Health_Collectible>().Damage(1);
-        }
+    //        collision2d.gameObject.GetComponent<Player_Health_Collectible>().Damage(1);
+    //    }
 
 
-    }
+    //}
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "EnemyCollider")
@@ -57,7 +57,15 @@ public class Shroom_Dash_Enemy_Move : MonoBehaviour
             print("pannenkoekn");
             gameObject.GetComponent<Animation>().Play("dmgtaken");
         }
+        if (collision.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Player_Health_Collectible>().Damage(1);
+            player.StartCoroutine(player.KnockBack(0.02f, 100, player.transform.position));
+
+        }
+
     }
+
 
     public void Attack()
     {
@@ -78,6 +86,7 @@ public class Shroom_Dash_Enemy_Move : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("EnemyShroomDashSound");
 
             StartCoroutine(DashBack());
+            
 
         }
         else if (facingRight == false && hitTimer >= hitInterval)
@@ -92,8 +101,9 @@ public class Shroom_Dash_Enemy_Move : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(Vector2.left * force);
 
             Debug.Log("Aanval naar rechts");
-
+            
             StartCoroutine(DashBack2());
+           
         }
 
 
@@ -124,7 +134,7 @@ public class Shroom_Dash_Enemy_Move : MonoBehaviour
 
         yield return new WaitForSeconds(dash_time);
 
-        GetComponent<Rigidbody2D>().AddForce(Vector2.left * (force * 3));
+        GetComponent<Rigidbody2D>().AddForce(Vector2.left * (force * 2));
 
     }
     IEnumerator DashBack2()
@@ -132,7 +142,7 @@ public class Shroom_Dash_Enemy_Move : MonoBehaviour
 
         yield return new WaitForSeconds(dash_time);
 
-        GetComponent<Rigidbody2D>().AddForce(Vector2.right * (force * 3));
+        GetComponent<Rigidbody2D>().AddForce(Vector2.right * (force* 2));
 
     }
 }
