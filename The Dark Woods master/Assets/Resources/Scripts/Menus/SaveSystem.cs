@@ -23,19 +23,27 @@ public static class SaveSystem
             FileStream file_stream = new FileStream(save_path, FileMode.Open);
             SaveData saved_data = formatter.Deserialize(file_stream) as SaveData;
             file_stream.Close();
-            Debug.Log(save_path);
             return saved_data;
         }
         else
         //create empty save file if one does not exist
         {
-            //Debug.LogError("Missing save file");
-            Debug.Log("Creating empty save file");
+            CreateDummySave();
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream file_stream = new FileStream(save_path, FileMode.Create);
-            formatter.Serialize(file_stream, "");
-            file_stream.Close();
-            return null;
+            FileStream second_file_stream = new FileStream(save_path, FileMode.Open);
+            SaveData saved_data = formatter.Deserialize(second_file_stream) as SaveData;
+            second_file_stream.Close();
+            return saved_data;
         }
+    }
+    public static void CreateDummySave()
+    {
+        string save_path = Application.persistentDataPath + "/the_dark_woods.save";
+        Debug.Log("Creating empty save file");
+        SaveData dummy_save = new SaveData("TutorialLevel", new Vector3(), 0, 10, 0, false, new bool[] { false, false, false }, true);
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream file_stream = new FileStream(save_path, FileMode.Create);
+        formatter.Serialize(file_stream, dummy_save);
+        file_stream.Close();
     }
 }

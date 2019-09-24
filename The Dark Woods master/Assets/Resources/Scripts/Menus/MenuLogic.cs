@@ -7,11 +7,13 @@ public class MenuLogic : MonoBehaviour
 {
     public void StartButton()
     {
+        SaveSystem.CreateDummySave();
+        GameManager.game_manager.has_pressed_continue = false;
         SceneManager.LoadScene("TutorialLevel");
     }
     public void ContinueButton()
     {
-        Debug.Log("Proper continue fonctionality to be implemented");
-        SceneManager.LoadScene("TutorialLevel");
+        GameManager.game_manager.has_pressed_continue = true;
+        SceneManager.LoadScene(LevelManager.LoadScene());
     }
 }
