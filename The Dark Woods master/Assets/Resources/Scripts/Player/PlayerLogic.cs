@@ -30,6 +30,7 @@ public class PlayerLogic : MonoBehaviour
     private void Start()
     {
         //StartCoroutine(KnockBack(0.02f, 350, transform.position));
+        the_joystick = GameObject.FindGameObjectWithTag("joystick").GetComponent<Joystick>();
     }
     void Update()
     {

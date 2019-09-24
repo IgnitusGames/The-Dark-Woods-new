@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Attack
   - movplat
+  - joystick
   layers:
   - Default
   - TransparentFX
