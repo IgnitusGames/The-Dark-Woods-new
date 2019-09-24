@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minimumCount: 3
   maximumCount: 5
-  prefab: {fileID: 1156437778639161854, guid: 49634101761777345a4e480e742dabc4, type: 3}
+  prefab: {fileID: 645271609230080812, guid: 49634101761777345a4e480e742dabc4, type: 3}
   gold_speed: 2
   SpawnPositionRight: {fileID: 176589201451115768}
   SpawnPositionMid: {fileID: 176589201391631563}

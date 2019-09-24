@@ -18,7 +18,7 @@ public class Shroom_Dash_Enemy_AttackCone : MonoBehaviour
     }
 
 
-    void OnTriggerStay2D(Collider2D trig)
+    void OnTriggerEnter2D(Collider2D trig)
     {
         if (trig.gameObject.tag == "Player")
         {

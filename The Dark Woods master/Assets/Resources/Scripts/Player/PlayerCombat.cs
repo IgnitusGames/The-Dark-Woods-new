@@ -9,7 +9,8 @@ public class PlayerCombat : MonoBehaviour
     public GameObject fire;
     public GameObject fire_ball;
     public GameObject fire_point;
-    public float fire_damage =1 ;
+    public float fire_damage_breath =1 ;
+    public float fire_damage_ball = 3;
     public float fire_speed;
     public Animator animator;
     private GameObject fire_instance;
@@ -68,7 +69,8 @@ public class PlayerCombat : MonoBehaviour
     public void Upgrade()
     {
         modifier = player.gold_score / 100;
-        fire_damage =+ modifier;
+        fire_damage_breath =+ modifier;
+        fire_damage_ball = +modifier;
         Debug.Log(modifier);
 
         //fire_damage = fire_damage + modifier;
@@ -94,7 +96,7 @@ public class PlayerCombat : MonoBehaviour
                 FindObjectOfType<AudioManager>().Play("PlayerFire");
             }
             fire_instance.transform.SetParent(fire_point.transform);
-            fire_instance.GetComponent<FireLogic>().Damage = fire_damage;
+            fire_instance.GetComponent<FireLogic>().Damage = fire_damage_breath;
         }     
     }
     public void FireBallAtack()
@@ -107,7 +109,7 @@ public class PlayerCombat : MonoBehaviour
             fire_ball_instance.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0) * fire_speed;
            // Debug.Log("bal links");
             fire_ball_audio.Play();
-            fire_ball_instance.GetComponent<FireBallLogic>().Damage = fire_damage;
+            fire_ball_instance.GetComponent<FireBallLogic>().Damage = fire_damage_ball;
         }
         else if (fire_point.transform.position.x > this.transform.position.x)
         { 
@@ -116,7 +118,7 @@ public class PlayerCombat : MonoBehaviour
             fire_ball_instance.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * fire_speed;
           //  Debug.Log("bal rechts");
             fire_ball_audio.Play();
-            fire_ball_instance.GetComponent<FireBallLogic>().Damage = fire_damage;
+            fire_ball_instance.GetComponent<FireBallLogic>().Damage = fire_damage_ball;
         }
     }
     //Remove fire attack from the scene
