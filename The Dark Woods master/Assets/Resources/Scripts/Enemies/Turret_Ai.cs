@@ -37,6 +37,7 @@ public class Turret_Ai : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Health_Collectible>();
         audioSource = GetComponent<AudioSource>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
     private void Update()
     {

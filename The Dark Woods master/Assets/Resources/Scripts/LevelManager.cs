@@ -94,7 +94,7 @@ public class LevelManager : MonoBehaviour
     {
         if(Instance.save_data.is_dummy_save)
         {
-            return "TutorialLevel";
+            return "Level 1";
         }
         else
         {

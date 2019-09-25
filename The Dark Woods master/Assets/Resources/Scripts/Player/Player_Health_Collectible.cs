@@ -54,7 +54,12 @@ public class Player_Health_Collectible : MonoBehaviour
     }
     public void Health(int dmg)
     {
-        curHealth += dmg;
+        int new_health = curHealth += dmg;
+        if(new_health > maxHealth)
+        {
+            new_health = maxHealth;
+        }
+        curHealth = new_health;
     }
 
     public void CrystalScore(int crystalscore)
