@@ -12,17 +12,14 @@ public class EndGame : MonoBehaviour
         {
             if(collision.GetComponent<Player_Health_Collectible>().crystal_score == 3)
             {
-                SceneManager.LoadScene("EndScreen");
+                //SceneManager.LoadScene("EndScreen");
+                SceneManager.LoadScene(LevelManager.GetNextLevelName());
             }
             else
             {
                 InitiateDialogue();
             }
         }
-    }
-    IEnumerator GoBackToMenuTime()
-    {
-        yield return new WaitForSeconds(10.0f);
     }
     public void InitiateDialogue()
     {

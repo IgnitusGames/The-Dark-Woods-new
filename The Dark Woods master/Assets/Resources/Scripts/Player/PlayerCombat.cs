@@ -120,6 +120,7 @@ public class PlayerCombat : MonoBehaviour
             fire_ball_audio.Play();
             fire_ball_instance.GetComponent<FireBallLogic>().Damage = fire_damage_ball;
         }
+        StartCoroutine(FireBallWait());
     }
     //Remove fire attack from the scene
     public void StopFire()
@@ -128,5 +129,10 @@ public class PlayerCombat : MonoBehaviour
         animator.SetBool("is_fireing", false);
         fire_breath_audio.Stop();
         Destroy(fire_instance);
+    }
+    IEnumerator FireBallWait()
+    {
+        yield return new WaitForSeconds(0.1f);
+        animator.SetBool("is_fireing", false);
     }
 }

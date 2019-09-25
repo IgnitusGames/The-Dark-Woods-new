@@ -40,7 +40,7 @@ public static class SaveSystem
     {
         string save_path = Application.persistentDataPath + "/the_dark_woods.save";
         Debug.Log("Creating empty save file");
-        SaveData dummy_save = new SaveData("TutorialLevel", new Vector3(), 0, 10, 0, false, new bool[] { false, false, false }, true);
+        SaveData dummy_save = new SaveData("Level 1", new Vector3(), 0, 10, 0, false, new bool[] { false, false, false }, true);
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream file_stream = new FileStream(save_path, FileMode.Create);
         formatter.Serialize(file_stream, dummy_save);
