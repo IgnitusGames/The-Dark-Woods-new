@@ -9,7 +9,7 @@ public class MenuLogic : MonoBehaviour
     {
         SaveSystem.CreateDummySave();
         GameManager.game_manager.has_pressed_continue = false;
-        SceneManager.LoadScene("TutorialLevel");
+        SceneManager.LoadScene("Level 1");
     }
     public void ContinueButton()
     {
