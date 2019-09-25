@@ -85,9 +85,30 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            collectables.crystal_score = save_data.crystal_score;
-            player_data.player_curr_health = save_data.player_health;
-            collectables.gold_score = save_data.gold_score;
+            if (GameManager.game_manager.player_needs_respawn && save_data.save_is_checkpoint)
+            {
+                player.transform.position = ReconvertPosition(save_data.player_poition);
+                collectables.crystal_score = save_data.crystal_score;
+                player_data.player_curr_health = save_data.player_health;
+                collectables.gold_score = save_data.gold_score;
+                GameManager.game_manager.player_needs_respawn = false;
+                for (int crystal_number = 0; crystal_number < crystals.Length; crystal_number++)
+                {
+                    GameObject current_crystal = crystals[crystal_number];
+                    Crystal crystal_data = current_crystal.GetComponent<Crystal>();
+                    crystal_data.collected = save_data.collected_crystals[crystal_number];
+                    if (crystal_data.collected)
+                    {
+                        current_crystal.SetActive(false);
+                    }
+                }
+            }
+            else
+            {
+                collectables.crystal_score = save_data.crystal_score;
+                player_data.player_curr_health = save_data.player_health;
+                collectables.gold_score = save_data.gold_score;
+            }
         }
     }
     public static string LoadScene()

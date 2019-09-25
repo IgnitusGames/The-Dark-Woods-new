@@ -44,7 +44,8 @@ public class Player_Health_Collectible : MonoBehaviour
     }
     public void Die()
     {
-       SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.game_manager.player_needs_respawn = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void Damage(int dmg)
     {

@@ -12,12 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: eb2add98b868f43439d8495d66fc2dab
   - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: b9b40889423cb4bbb9b5ac5d928749a9
+  - enabled: 1
     path: Assets/Scenes/Ino_TestScene.unity
     guid: 5373e6fad464c6944b78f1d9503c41dc
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: 869928a92267f85458a22b0c6ea5f572
-  - enabled: 0
-    path: Assets/Scenes/TutorialLevel.unity
-    guid: eaf7d5890a908b24288f9c4b72b01bf2
   m_configObjects: {}

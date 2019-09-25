@@ -72,6 +72,7 @@ public sealed class HealthComponent : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Debug.Log(damage + " inenemy");
         enemy_curr_health -= damage;
         if(damage > 0)
         {

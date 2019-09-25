@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public bool has_pressed_continue = true;
+    public bool has_pressed_continue = false;
+    public bool player_needs_respawn = false;
 
     public static GameManager game_manager { get; private set; }
     private void Awake()

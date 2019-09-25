@@ -115,6 +115,7 @@ public class PlayerLogic : MonoBehaviour
     }
     public void Die()
     {
+        GameManager.game_manager.player_needs_respawn = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void StrongJump()

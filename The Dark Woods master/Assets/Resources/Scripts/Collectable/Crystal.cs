@@ -19,10 +19,11 @@ public class Crystal : MonoBehaviour
     {
         if (trig.gameObject.tag == "Player")
         {
-            //FindObjectOfType<AudioManager>().Play("CrystalSound");
+            FindObjectOfType<AudioManager>().Play("CrystalSound");
             collected = true;
             trig.GetComponent<Player_Health_Collectible>().CrystalScore(1);
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

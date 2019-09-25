@@ -13,7 +13,6 @@ public class EndGame : MonoBehaviour
             if(collision.GetComponent<Player_Health_Collectible>().crystal_score == 3)
             {
                 //SceneManager.LoadScene("EndScreen");
-                collision.GetComponent<Player_Health_Collectible>().crystal_score = 0;
                 SceneManager.LoadScene(LevelManager.GetNextLevelName());
             }
             else

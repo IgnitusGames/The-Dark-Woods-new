@@ -34,6 +34,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.save
+*.save.meta
 
 # Misc
 *.zip

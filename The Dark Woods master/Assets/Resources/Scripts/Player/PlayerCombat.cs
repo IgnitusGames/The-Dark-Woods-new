@@ -9,7 +9,7 @@ public class PlayerCombat : MonoBehaviour
     public GameObject fire;
     public GameObject fire_ball;
     public GameObject fire_point;
-    public float fire_damage_breath =1 ;
+    public float fire_damage_breath = 1 ;
     public float fire_damage_ball = 3;
     public float fire_speed;
     public Animator animator;
@@ -20,7 +20,7 @@ public class PlayerCombat : MonoBehaviour
     AudioSource fire_ball_audio;
     private Player_Health_Collectible player;
 
-    public float modifier;
+    public float modifier = 1;
     public float dmg_increase;
 
 
@@ -69,8 +69,8 @@ public class PlayerCombat : MonoBehaviour
     public void Upgrade()
     {
         modifier = player.gold_score / 100;
-        fire_damage_breath =+ modifier;
-        fire_damage_ball = +modifier;
+        fire_damage_breath += modifier;
+        fire_damage_ball += modifier;
         Debug.Log(modifier);
 
         //fire_damage = fire_damage + modifier;
@@ -97,6 +97,7 @@ public class PlayerCombat : MonoBehaviour
             }
             fire_instance.transform.SetParent(fire_point.transform);
             fire_instance.GetComponent<FireLogic>().Damage = fire_damage_breath;
+            Debug.Log(fire_damage_breath);
         }     
     }
     public void FireBallAtack()
@@ -120,6 +121,7 @@ public class PlayerCombat : MonoBehaviour
             fire_ball_audio.Play();
             fire_ball_instance.GetComponent<FireBallLogic>().Damage = fire_damage_ball;
         }
+        Debug.Log(fire_damage_ball);
         StartCoroutine(FireBallWait());
     }
     //Remove fire attack from the scene

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8204453287591146157}
   - component: {fileID: 8204453287591146156}
   - component: {fileID: 8204453287591146159}
-  - component: {fileID: 8204453287591146158}
   - component: {fileID: 8204453287591146154}
+  - component: {fileID: 8204453287591146158}
   m_Layer: 0
   m_Name: Visual_door
   m_TagString: Untagged
@@ -109,6 +109,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.11, y: 3.19}
   m_EdgeRadius: 0
+--- !u!114 &8204453287591146154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8204453287591146161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7922ac14eca2a43438763d2d840c641f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is_checkpoint: 0
 --- !u!114 &8204453287591146158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,16 +141,3 @@ MonoBehaviour:
     - You have reahced the end of the level.
     - But I see you don't have all 3 crystal shards yet.
     - Come back when you have collected all 3 shards.
---- !u!114 &8204453287591146154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8204453287591146161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7922ac14eca2a43438763d2d840c641f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  is_checkpoint: 0

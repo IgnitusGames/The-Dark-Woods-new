@@ -11,21 +11,19 @@ public class SaveGameTrigger : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             Debug.Log("Saving game");
-            if(is_checkpoint)
+            PlayerLogic player_logic = collision.GetComponent<PlayerLogic>();
+            Player_Health_Collectible collectables = collision.GetComponent<Player_Health_Collectible>();
+            if (is_checkpoint)
             {
                 //save game met potitie
-                PlayerLogic player_logic = collision.GetComponent<PlayerLogic>();
-                Player_Health_Collectible collectables = collision.GetComponent<Player_Health_Collectible>();
                 string current_level = SceneManager.GetActiveScene().name;
-                SaveData data_to_save = new SaveData(current_level, player_logic.transform.position, collectables.crystal_score, player_logic.player_curr_health, collectables.gold_score, true, get_collected_crystals(), false);
+                SaveData data_to_save = new SaveData(current_level, player_logic.transform.position, collectables.crystal_score, collectables.curHealth, collectables.gold_score, true, get_collected_crystals(), false);
                 SaveSystem.SaveProgress(data_to_save);
             }
-            else
+            else if(!is_checkpoint && collectables.crystal_score == 3)
             {
-                PlayerLogic player_logic = collision.GetComponent<PlayerLogic>();
-                Player_Health_Collectible collectables = collision.GetComponent<Player_Health_Collectible>();
                 string level_to_save = LevelManager.GetNextLevelName();
-                SaveData data_to_save = new SaveData(level_to_save, new Vector3(), collectables.crystal_score, player_logic.player_curr_health, collectables.gold_score, false, get_collected_crystals(), false);
+                SaveData data_to_save = new SaveData(level_to_save, new Vector3(), 0, collectables.curHealth, collectables.gold_score, false, new bool[] {false, false, false }, false);
                 SaveSystem.SaveProgress(data_to_save);
                 //save game zonder positie
             }

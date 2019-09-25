@@ -6,7 +6,7 @@ using UnityEngine;
 public class FireLogic : MonoBehaviour
 {
     //Variables
-    public float Damage =1;
+    public float Damage = 1;
 
 
     //Unity functions
@@ -23,7 +23,7 @@ public class FireLogic : MonoBehaviour
             
             //collision.GetComponent<Enemy_Health>().EnemyDamage(1);
             collision.GetComponent<HealthComponent>().TakeDamage(Damage);
-            //Debug.Log("Dealing " + Damage + " damage");
+            Debug.Log("Dealing " + Damage + " damage");
           
         }
     }
