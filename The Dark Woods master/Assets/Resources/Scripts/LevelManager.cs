@@ -7,7 +7,8 @@ public class LevelManager : MonoBehaviour
 {
     public GameObject player;
     public GameObject[] crystals;
-    public static string next_level;
+    [TextArea(1,1)]
+    [SerializeField] private string next_level;
 
     //float[] player_position;
     //int player_health;
@@ -99,5 +100,9 @@ public class LevelManager : MonoBehaviour
         {
             return Instance.save_data.world_level;
         }
+    }
+    public static string GetNextLevelName()
+    {
+        return Instance.next_level;
     }
 }

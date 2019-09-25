@@ -24,7 +24,7 @@ public class SaveGameTrigger : MonoBehaviour
             {
                 PlayerLogic player_logic = collision.GetComponent<PlayerLogic>();
                 Player_Health_Collectible collectables = collision.GetComponent<Player_Health_Collectible>();
-                string level_to_save = LevelManager.next_level;
+                string level_to_save = LevelManager.GetNextLevelName();
                 SaveData data_to_save = new SaveData(level_to_save, new Vector3(), collectables.crystal_score, player_logic.player_curr_health, collectables.gold_score, false, get_collected_crystals(), false);
                 SaveSystem.SaveProgress(data_to_save);
                 //save game zonder positie

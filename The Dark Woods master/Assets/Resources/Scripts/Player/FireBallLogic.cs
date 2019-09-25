@@ -21,7 +21,7 @@ public class FireBallLogic : MonoBehaviour
             Debug.Log("Dealing " + Damage + " damage");
             Destroy(this.gameObject);
         }
-        else if (collision.gameObject.tag != "Attack" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "EnemyCollider")
+        else if (collision.gameObject.tag != "Attack" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "EnemyCollider" && collision.gameObject.tag != "Untagged")
         {
             Destroy(this.gameObject);
         }
