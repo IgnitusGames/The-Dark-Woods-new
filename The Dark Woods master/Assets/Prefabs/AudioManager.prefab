@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1166185887242110800
+--- !u!1 &4950639302466040112
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7525639046649814746}
-  - component: {fileID: 5469557275324551735}
+  - component: {fileID: 4950639302466040114}
+  - component: {fileID: 4950639302466040113}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7525639046649814746
+--- !u!4 &4950639302466040114
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1166185887242110800}
+  m_GameObject: {fileID: 4950639302466040112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.2709697, y: 6.3418837, z: -4.84375}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,13 +31,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5469557275324551735
+--- !u!114 &4950639302466040113
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1166185887242110800}
+  m_GameObject: {fileID: 4950639302466040112}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2435801eec1071d4c967cf659d1ca2fd, type: 3}
@@ -46,7 +46,7 @@ MonoBehaviour:
   sounds:
   - name: Theme
     clip: {fileID: 8300000, guid: b3f929e835bf77f48ace890166c1b061, type: 3}
-    volume: 0
+    volume: -1.61
     pitch: 0.548
     loop: 1
     source: {fileID: 0}
@@ -58,15 +58,9 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: EnemyTurretBulletHit
     clip: {fileID: 8300000, guid: 535774a087181744bb452a5c0c0fded2, type: 3}
-    volume: 0.528
+    volume: 0.36
     pitch: 0.552
     loop: 0
-    source: {fileID: 0}
-  - name: EnemyTurretShoot
-    clip: {fileID: 8300000, guid: 65cc4f990756e9949b2184c53f699f72, type: 3}
-    volume: 0.427
-    pitch: 0.469
-    loop: 1
     source: {fileID: 0}
   - name: ShroomEnemyAttack
     clip: {fileID: 8300000, guid: d43b63670c164784a994c1867d1467ca, type: 3}
@@ -86,21 +80,33 @@ MonoBehaviour:
     pitch: 0.469
     loop: 0
     source: {fileID: 0}
-  - name: EnemyTurretDmg
+  - name: EnemyTurretShoot
     clip: {fileID: 8300000, guid: 535774a087181744bb452a5c0c0fded2, type: 3}
-    volume: 0.469
+    volume: 0.42
     pitch: 0.469
     loop: 0
     source: {fileID: 0}
-  - name: VlinderDmg
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: CrystalSound
+    clip: {fileID: 8300000, guid: 7f668ee0c07a12344b88641918b550d8, type: 3}
+    volume: 1
+    pitch: 0.485
     loop: 0
     source: {fileID: 0}
-  - name: HealthPickUp
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: PlayerDmg
+    clip: {fileID: 8300000, guid: a03a9a2005e07cb4a9a452083ccf9fbc, type: 3}
+    volume: 0.5
+    pitch: 0.749
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyTurretDmg
+    clip: {fileID: 8300000, guid: a03a9a2005e07cb4a9a452083ccf9fbc, type: 3}
+    volume: 1.41
+    pitch: 0.749
+    loop: 0
+    source: {fileID: 0}
+  - name: GoldSound
+    clip: {fileID: 8300000, guid: b3c5001cd9888984c97fb7212baba276, type: 3}
+    volume: 1
+    pitch: 0.749
     loop: 0
     source: {fileID: 0}
