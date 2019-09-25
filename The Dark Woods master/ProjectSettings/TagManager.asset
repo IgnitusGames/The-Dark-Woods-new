@@ -9,6 +9,13 @@ TagManager:
   - Ground
   - Attack
   - movplat
+<<<<<<< Updated upstream
+=======
+  - joystick
+  - jump_deer
+  - deer_jump2
+  - jump_deer2
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

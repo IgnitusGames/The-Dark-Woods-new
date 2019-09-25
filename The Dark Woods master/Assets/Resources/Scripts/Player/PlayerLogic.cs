@@ -187,7 +187,7 @@ public class PlayerLogic : MonoBehaviour
             //horizontal movement
             if (the_joystick.Horizontal >= 0.2f || the_joystick.Horizontal <= -0.2f)
             {
-                Debug.Log("moving");
+                
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(horizontal_move * player_speed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
             }
             //float VerticalMove = the_joystick.Vertical;
