@@ -16,10 +16,11 @@ public class Enemy_Deer : MonoBehaviour
     private PlayerLogic player;
     public float wait =5;
     public Transform target;
+    public int jump_power3 = 200;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLogic>();
-        
+        Flip();
     }
 
     void Update()
@@ -45,11 +46,7 @@ public class Enemy_Deer : MonoBehaviour
     //}
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "EnemyCollider")
-        {
 
-            Flip();
-        }
         if (collision.gameObject.tag == "Attack")
         {
 
@@ -65,6 +62,7 @@ public class Enemy_Deer : MonoBehaviour
             print(collision.gameObject.tag);
             is_grounded = false;
             // EnemySpeed = 0;
+            print("jump1");
             Jump();
             //  is_grounded = false;
             // Debug.Log("op de grond");
@@ -76,13 +74,28 @@ public class Enemy_Deer : MonoBehaviour
             print(collision.gameObject.tag);
             is_grounded = false;
             // EnemySpeed = 0;
+            print("jump2");
             Jump2();
             //  is_grounded = false;
-            // Debug.Log("op de grond");
+            // Debug.Log("op de grond");\
         }
 
+            if (collision.gameObject.tag == "jump_deer3")
+            {
+                //is_grounded = true;
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(XMoveDirection, 0) * EnemySpeed;
+                print(collision.gameObject.tag);
+                is_grounded = false;
 
-    }
+            print("jump3");
+                // EnemySpeed = 0;
+                Jump3();
+                //  is_grounded = false;
+                // Debug.Log("op de grond");
+            }
+
+
+        }
 
 
    
@@ -107,6 +120,25 @@ public class Enemy_Deer : MonoBehaviour
         
     }
 
+    void Flip()
+    {
+        if (XMoveDirection > 0)
+        {
+            XMoveDirection = -1;
+            facingRight = false;
+            Vector2 localScale = gameObject.transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
+        }
+        else
+        {
+            XMoveDirection = 1;
+            facingRight = false;
+            Vector2 localScale = gameObject.transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
+        }
+    }
     void RangeCheck()
     {
         distance = Vector3.Distance(transform.position, target.transform.position);
@@ -153,58 +185,33 @@ public class Enemy_Deer : MonoBehaviour
 
 
     }
-    void Flip()
-    {
-        if (XMoveDirection > 0)
-        {
-            XMoveDirection = -1;
-            facingRight = false;
-            Vector2 localScale = gameObject.transform.localScale;
-            localScale.x *= -1;
-            transform.localScale = localScale;
-        }
-        else
-        {
-            XMoveDirection = 1;
-            facingRight = true;
-            Vector2 localScale = gameObject.transform.localScale;
-            localScale.x *= -1;
-            transform.localScale = localScale;
-        }
-    }
+
     void Jump()
     {
 
-        if (facingRight == false)
-        {
-            is_grounded = false;
-            this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jump_power);
-            this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 50);
-            
-        }
-        if (facingRight == true)
-        {
+       
+ 
             is_grounded = false;
             this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jump_power);
             this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 50);
-        }
+   
 
     }
     void Jump2()
     {
 
-        if (facingRight == false)
-        {
-            is_grounded = false;
-            this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jump_power2);
-            this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 50);
-        }
-        if (facingRight == true)
-        {
-            is_grounded = false;
             this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jump_power2);
             this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 50);
-        }
+
+    }
+    void Jump3()
+    {
+
+     
+            is_grounded = false;
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jump_power3);
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 50);
+ 
 
     }
     public IEnumerator MoveUitzetten()

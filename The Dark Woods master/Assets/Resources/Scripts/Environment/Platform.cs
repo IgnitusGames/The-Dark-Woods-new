@@ -28,7 +28,7 @@ public class Platform : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D trig)
     {
 
-        if (trig.gameObject.tag == "EnemyCollider")
+        if (trig.gameObject.tag == "PlatformCollider")
         {
             Flip();
         }
@@ -36,7 +36,7 @@ public class Platform : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "EnemyCollider")
+        if (collision.gameObject.tag == "Platform")
         {
            
         }

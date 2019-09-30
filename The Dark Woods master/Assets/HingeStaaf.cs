@@ -26,7 +26,7 @@ public class HingeStaaf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(transform.rotation.z);
+        Debug.Log(transform.rotation.eulerAngles.z);
         if (Input.GetKeyDown(KeyCode.Space))
         {
 

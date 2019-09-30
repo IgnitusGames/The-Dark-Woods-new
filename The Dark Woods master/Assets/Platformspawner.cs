@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class PrefabSpawner : MonoBehaviour
+public class Platformspawner : MonoBehaviour
 {
+    // Start is called before the first frame update
     [SerializeField]
     private int minimumCount = 3;
     [SerializeField]
@@ -12,10 +13,19 @@ public sealed class PrefabSpawner : MonoBehaviour
     private GameObject prefab = null;
 
     public float gold_speed = 0;
-   // public Transform target;
-    public Transform SpawnPositionRight, SpawnPositionMid, SpawnPositionLeft;
+    // public Transform target;
+    public Transform  SpawnPositionLeft;
 
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            print("player");
+            Spawn();
+
+        }
+    }
 
     public int MinimumCount
     {
@@ -38,8 +48,8 @@ public sealed class PrefabSpawner : MonoBehaviour
 
         GameObject gold_clone;
         Vector2 direction = SpawnPositionLeft.transform.position - transform.position;
-        gold_clone = Instantiate(this.prefab, this.transform.position, SpawnPositionLeft.transform.rotation);
-        gold_clone.GetComponent<Rigidbody2D>().velocity = direction * gold_speed;
+        gold_clone = Instantiate(this.prefab, SpawnPositionLeft.transform.position, SpawnPositionLeft.transform.rotation);
+       // gold_clone.GetComponent<Rigidbody2D>().velocity = direction * gold_speed;
 
 
         //GameObject gold_clone2;

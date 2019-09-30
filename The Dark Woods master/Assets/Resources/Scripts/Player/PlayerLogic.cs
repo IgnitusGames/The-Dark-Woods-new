@@ -23,6 +23,8 @@ public class PlayerLogic : MonoBehaviour
     public bool jump;
     public float force = 100;
     private Rigidbody2D rb2d;
+    public int jump_count = 0;
+
   
 
     private float horizontal_move;
@@ -35,8 +37,16 @@ public class PlayerLogic : MonoBehaviour
     void Update()
     {
         Movement();
-       
-
+       if (is_grounded)
+        {
+            jump_count = 0;
+        }
+        if (Input.GetButton("Jump"))
+        {
+            Jump();
+            print("jump");
+           // Jump2();
+        }
         //if (IsGrounded == false)
         //{
         //    animator.SetBool("is_jumping", true);
@@ -100,12 +110,14 @@ public class PlayerLogic : MonoBehaviour
             is_grounded = true;
             this.transform.parent = collision.transform;
             Debug.Log("op platform");
+            player_speed = 0;
         }
     }
     void OnCollisionExit2D(Collision2D col)
     {
         if (col.gameObject.tag == "movplat")
             this.transform.parent = null;
+        player_speed = 6;
     }
     //Kill the player (technically reloading the level)
     public void Die()
@@ -114,21 +126,38 @@ public class PlayerLogic : MonoBehaviour
     }
     public void StrongJump()
     {
-        if(is_grounded)
-        {
-            is_grounded = false;
-            this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * strong_jump_power);
-        }
+        
     }
     //Make the player jump by adding force upward
     public void Jump()
     {
-        if(is_grounded)
+
+        if (is_grounded && jump_count == 0)
         {
             is_grounded = false;
             this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * normal_jump_power);
+            jump_count = jump_count + 1;
+            print(jump_count);
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 50);
+
         }
+       
     }
+    public void Jump2()
+    {
+
+        if (jump_count == 1 && is_grounded == false)
+        {
+            is_grounded = false;
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * strong_jump_power);
+            jump_count = jump_count + 1;
+            print(jump_count);
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 50);
+
+        }
+
+    }
+
     void FlipPlayer()
     {
         going_right = !going_right;
@@ -156,6 +185,16 @@ public class PlayerLogic : MonoBehaviour
 
 
     //}
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Modder")
+        {
+
+            player_speed = 9;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D trig)
     {
         //if (collision.gameObject.tag == "EnemyCollider")
@@ -168,10 +207,18 @@ public class PlayerLogic : MonoBehaviour
         {
             print("playercheck");
         }
+        if (trig.gameObject.tag == "Modder")
+        {
+            print("kaas");
+            player_speed = 4;
+        }
 
     }
     void Movement()
     {
+        horizontal_move = 1;
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(horizontal_move * player_speed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+
         horizontal_move = the_joystick.Horizontal;
         animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
         if (!DialogueManager.is_in_dialogue)
@@ -185,11 +232,10 @@ public class PlayerLogic : MonoBehaviour
                 FlipPlayer();
             }
             //horizontal movement
-            if (the_joystick.Horizontal >= 0.2f || the_joystick.Horizontal <= -0.2f)
-            {
+            
+        
                 
-                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(horizontal_move * player_speed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
-            }
+              
             //float VerticalMove = the_joystick.Vertical;
             //if (the_joystick.Vertical >= 0.5f && is_grounded)
             //{

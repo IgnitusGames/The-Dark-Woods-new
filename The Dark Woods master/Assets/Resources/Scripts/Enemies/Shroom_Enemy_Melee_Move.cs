@@ -29,12 +29,7 @@ public class Shroom_Enemy_Melee_Move : MonoBehaviour
         hitTimer += Time.deltaTime;
         // Debug.Log(hit.distance);
 
-        if (hit.distance < 1.0f && hit.collider.tag == "EnemyCollider")
-        {
-            Flip();
-
-            //  player_Health.Die();    
-        }
+        
         if (hit.collider.tag != "Player" && hit.distance > hitDistance)
         {
             EnemySpeed = 4;
@@ -115,7 +110,7 @@ public class Shroom_Enemy_Melee_Move : MonoBehaviour
         if (XMoveDirection > 0)
         {
             XMoveDirection = -1;
-            facingRight = !facingRight;
+            facingRight = true;
             Vector2 localScale = gameObject.transform.localScale;
             localScale.x *= -1;
             transform.localScale = localScale;
@@ -123,7 +118,7 @@ public class Shroom_Enemy_Melee_Move : MonoBehaviour
         else
         {
             XMoveDirection = 1;
-
+            facingRight = false;
             Vector2 localScale = gameObject.transform.localScale;
             localScale.x *= -1;
             transform.localScale = localScale;

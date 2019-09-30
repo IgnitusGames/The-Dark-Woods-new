@@ -5,17 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - enemy
-  - EnemyCollider
-  - Ground
   - Attack
   - movplat
-<<<<<<< Updated upstream
-=======
-  - joystick
-  - jump_deer
-  - deer_jump2
+  - Ground
+  - EnemyCollider
   - jump_deer2
->>>>>>> Stashed changes
+  - jump_deer
+  - jump_deer3
+  - Modder
+  - prefabspawn
   layers:
   - Default
   - TransparentFX
