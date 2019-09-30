@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 421135964398309772}
   m_Layer: 0
   m_Name: Platform_large
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 7998042552757786715}
   m_Layer: 0
   m_Name: Platform_small
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,7 +240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7592092357302402346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 94.96589, y: -1.8147849, z: 190.64462}
+  m_LocalPosition: {x: 94.96589, y: -1.8147849, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 612576375441539672}

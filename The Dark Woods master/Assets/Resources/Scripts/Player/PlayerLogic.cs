@@ -117,7 +117,7 @@ public class PlayerLogic : MonoBehaviour
     {
         if (col.gameObject.tag == "movplat")
             this.transform.parent = null;
-        player_speed = 6;
+        player_speed = 10;
     }
     //Kill the player (technically reloading the level)
     public void Die()
@@ -191,7 +191,7 @@ public class PlayerLogic : MonoBehaviour
         if (collision.gameObject.tag == "Modder")
         {
 
-            player_speed = 9;
+            player_speed = 10;
         }
     }
 

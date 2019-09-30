@@ -38,7 +38,7 @@ public sealed class PrefabSpawner : MonoBehaviour
 
         GameObject gold_clone;
         Vector2 direction = SpawnPositionLeft.transform.position - transform.position;
-        gold_clone = Instantiate(this.prefab, this.transform.position, SpawnPositionLeft.transform.rotation);
+        gold_clone = Instantiate(this.prefab, SpawnPositionLeft.transform.position, SpawnPositionLeft.transform.rotation) ;
         gold_clone.GetComponent<Rigidbody2D>().velocity = direction * gold_speed;
 
 

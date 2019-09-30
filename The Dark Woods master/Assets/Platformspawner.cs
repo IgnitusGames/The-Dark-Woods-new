@@ -10,12 +10,12 @@ public class Platformspawner : MonoBehaviour
     [SerializeField]
     private int maximumCount = 5;
     [SerializeField]
-    private GameObject prefab = null;
+    private GameObject prefab1, prefab2, prefab3;
 
     public float gold_speed = 0;
     // public Transform target;
     public Transform  SpawnPositionLeft;
-
+    int whatToSpawn;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -37,19 +37,38 @@ public class Platformspawner : MonoBehaviour
         get { return this.maximumCount; }
         set { this.maximumCount = value; }
     }
-    public GameObject Prefab
-    {
-        get { return this.prefab; }
-        set { this.prefab = value; }
-    }
+    //public GameObject Prefab
+    //{
+    //    get { return this.prefab; }
+    //    set { this.prefab = value; }
+    //}
 
     public void Spawn()
     {
 
         GameObject gold_clone;
-        Vector2 direction = SpawnPositionLeft.transform.position - transform.position;
-        gold_clone = Instantiate(this.prefab, SpawnPositionLeft.transform.position, SpawnPositionLeft.transform.rotation);
-       // gold_clone.GetComponent<Rigidbody2D>().velocity = direction * gold_speed;
+        
+        //gold_clone = Instantiate(prefab1,SpawnPositionLeft.transform.position, SpawnPositionLeft.transform.rotation);
+        //// gold_clone.GetComponent<Rigidbody2D>().velocity = direction * gold_speed;
+        //print(gold_clone.transform.position);
+        //print(SpawnPositionLeft.transform.position);
+
+
+        whatToSpawn = Random.Range(1, 3);
+        Debug.Log(whatToSpawn);
+
+        switch(whatToSpawn)
+        {
+            case 1: gold_clone = Instantiate(prefab1, SpawnPositionLeft.transform.position, SpawnPositionLeft.transform.rotation);
+                break;
+            case 2:
+                gold_clone = Instantiate(prefab2, SpawnPositionLeft.transform.position, SpawnPositionLeft.transform.rotation);
+                break;
+            case 3:
+                gold_clone = Instantiate(prefab3, SpawnPositionLeft.transform.position, SpawnPositionLeft.transform.rotation);
+                break;
+
+        }
 
 
         //GameObject gold_clone2;
